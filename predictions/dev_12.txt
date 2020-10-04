@@ -1,0 +1,1034 @@
+select count(*) from singer  
+select count(*) from singer  
+select singer.Name , singer.Country , singer.Age from singer   order by singer.Age desc
+select singer.Name , singer.Country , singer.Age from singer   order by singer.Age desc
+select avg(singer.Age) , min(singer.Age) , max(singer.Age) from singer where  singer.Country = 'France'  
+select avg(singer.Age) , min(singer.Age) , max(singer.Age) from singer where  singer.Country = 'france'  
+select singer.Song_Name , singer.Song_release_year from singer   order by singer.Age asc limit 1 
+select singer.Song_Name , singer.Song_release_year from singer   order by singer.Age asc limit 1 
+select distinct singer.Country from singer where  singer.Age > 20  
+select distinct singer.Country from singer where  singer.Age > 20  
+select singer.Country , count(*) from singer  group by singer.Country 
+select count(*) , singer.Country from singer  group by singer.Country 
+NO PREDICT
+select singer.Song_Name from singer where  singer.age > (select avg(singer.Age) from singer  )  
+select stadium.Location , stadium.Name from stadium where  stadium.Capacity between 5000 and 10000  
+select stadium.Location , stadium.Name from stadium where  stadium.Capacity between 5000 and 10000  
+select avg(stadium.Capacity) , max(stadium.Capacity) from stadium  
+select avg(stadium.Capacity) , max(stadium.Capacity) from stadium  
+select stadium.Name , stadium.Capacity from stadium   order by stadium.Highest desc limit 1 
+select stadium.Name , stadium.Capacity from stadium   order by stadium.Highest desc limit 1 
+select count(*) from concert where  concert.Year = 2014 or concert.Year = 2015  
+select count(*) from concert where  concert.Year = 2014 or concert.Year = 2015  
+select stadium.Name , count(*) from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID  group by stadium.Stadium_ID 
+select count(*) , stadium.Stadium_ID from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID  group by stadium.Stadium_ID 
+select stadium.Name , stadium.Capacity from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID where  concert.Year >= 2014  group by stadium.Stadium_ID  order by count(*) desc limit 1 
+select stadium.Name , stadium.Capacity from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID where  concert.Year > 2013  group by stadium.Stadium_ID  order by count(*) desc limit 1 
+select concert.Year from concert  group by concert.Year  order by count(*) desc limit 1 
+select concert.Year from concert  group by concert.Year  order by count(*) desc limit 1 
+select stadium.Name from stadium where  stadium.stadium_id not in (select concert.Stadium_ID from concert  )  
+select stadium.Name from stadium where  stadium.stadium_id not in (select concert.Stadium_ID from concert  )  
+select singer.Country from singer where  singer.Age > 40 and singer.Age < 30  
+select stadium.Name from stadium   except select stadium.Name from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID where  concert.Year = 2014  
+select stadium.Name from stadium   except select stadium.Name from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID where  concert.Year = 2014  
+select concert.concert_Name , concert.Theme , count(*) from singer_in_concert join singer on singer_in_concert.Singer_ID = singer.Singer_ID join concert on singer_in_concert.concert_ID = concert.concert_ID  group by concert.concert_ID 
+select concert.concert_Name , concert.Theme , count(*) from singer_in_concert join singer on singer_in_concert.Singer_ID = singer.Singer_ID join concert on singer_in_concert.concert_ID = concert.concert_ID  group by concert.concert_ID 
+select singer.Name , count(*) from singer_in_concert join singer on singer_in_concert.Singer_ID = singer.Singer_ID join concert on singer_in_concert.concert_ID = concert.concert_ID  group by singer.Singer_ID 
+select singer.Name , count(*) from singer_in_concert join singer on singer_in_concert.Singer_ID = singer.Singer_ID join concert on singer_in_concert.concert_ID = concert.concert_ID  group by singer.Name 
+select singer.Name from singer_in_concert join singer on singer_in_concert.Singer_ID = singer.Singer_ID join concert on singer_in_concert.concert_ID = concert.concert_ID where  concert.Year = 2014  
+select singer.Name from singer_in_concert join singer on singer_in_concert.Singer_ID = singer.Singer_ID join concert on singer_in_concert.concert_ID = concert.concert_ID where  concert.Year = 2014  
+select singer.Name , singer.Country from singer where  singer.Song_Name like '%hey%'  
+select singer.Name , singer.Country from singer where  singer.Song_Name like '%hey hey%'  
+select stadium.Name , stadium.Location from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID where  concert.Year = 2014    intersect select stadium.Name , stadium.Location from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID where  concert.Year = 2015  
+select stadium.Name , stadium.Location from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID where  concert.Year = 2014    intersect select stadium.Name , stadium.Location from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID where  concert.Year = 2015  
+select count(*) from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID   order by stadium.Capacity desc limit 1 
+select count(*) from concert join stadium on concert.Stadium_ID = stadium.Stadium_ID   order by stadium.Capacity desc limit 1 
+select count(*) from Pets where  Pets.weight > 10  
+select count(*) from Pets where  Pets.weight > 10  
+select Pets.weight from Pets  
+select Pets.weight from Pets where  Pets.PetType = 'dog'   order by Pets.pet_age asc limit 1 
+select max(Pets.weight) , Pets.PetType from Pets  group by Pets.PetType 
+select max(Pets.weight) , Pets.PetType from Pets  group by Pets.PetType 
+select count(*) from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Student.Age > 20  
+select count(*) from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Student.Age > 20  
+select count(*) from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'dog' and Student.Sex = 'F'  
+select count(*) from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'dog'   
+select count(Pets.PetType) from Pets  
+select count(Pets.PetType) from Pets  
+select Student.Fname from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat' or Pets.PetType = 'dog'  
+select Student.Fname from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat' or Pets.PetType = 'dog'  
+select Student.LName , Student.Fname from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat'    intersect select Student.LName , Student.Fname from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'dog'  
+select Student.Fname from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat'    intersect select Student.Fname from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'dog'  
+select Student.Major , Student.Age from Student   except select Student.Major , Student.Age from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat'  
+select Student.Major , Student.Age from Student   except select Student.Major , Student.Age from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat'  
+select Student.StuID from Student   except select Student.StuID from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat'  
+select Student.StuID from Student   except select Student.StuID from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat'  
+select Student.Fname , Student.Age from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'dog' and pets.petid not in (select Pets.PetID from Pets  )  
+select Student.Fname from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'dog' and Pets.PetType != 'cat'  
+select Pets.PetType , Pets.weight from Pets   order by Pets.pet_age asc limit 1 
+select Pets.PetType , Pets.weight from Pets   order by Pets.pet_age asc limit 1 
+select Pets.PetID , Pets.weight from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Student.Age > 1  
+select Pets.PetID , Pets.weight from Pets where  Pets.pet_age > 1  
+select avg(Pets.pet_age) , max(Pets.pet_age) , Pets.PetType from Pets  group by Pets.PetType 
+select avg(Pets.pet_age) , max(Pets.pet_age) , Pets.PetType from Pets  group by Pets.PetType 
+select avg(Pets.weight) , Pets.PetType from Pets  group by Pets.PetType 
+select avg(Pets.weight) , Pets.PetType from Pets  group by Pets.PetType 
+select Student.Fname , Student.Age from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID  
+select distinct Student.Fname , Student.Age from Has_Pet join Student on Has_Pet.StuID = Student.StuID  
+select Pets.PetID from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Student.LName = 'Smith'  
+select Pets.PetID from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Student.LName = 'Smith'  
+select count(*) , Student.StuID from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID  group by Student.StuID 
+select count(*) , Student.StuID from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID  group by Student.StuID 
+select Student.Fname , Student.Sex from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID  group by Student.StuID having  count(*) > 1 
+select Student.Fname , Student.Sex from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID  group by Student.StuID having  count(*) > 1 
+select Student.LName from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat' and Student.Age = 3  
+select Student.LName from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  Pets.PetType = 'cat' and Student.Age = 3  
+select avg(Student.Age) from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  pets.petid not in (select Pets.PetID from Pets  )  
+select avg(Student.Age) from Has_Pet join Student on Has_Pet.StuID = Student.StuID join Pets on Has_Pet.PetID = Pets.PetID where  pets.petid not in (select Pets.PetID from Pets  )  
+select count(*) from continents  
+select count(*) from continents  
+select count(*) , continents.ContId , continents.Continent from countries join continents on countries.Continent = continents.ContId  group by continents.ContId 
+select continents.ContId , continents.Continent , count(*) from countries join continents on countries.Continent = continents.ContId  group by continents.ContId 
+select count(*) from countries  
+select count(*) from countries  
+select count(*) , car_makers.FullName , car_makers.Id from model_list join car_makers on model_list.Maker = car_makers.Id  group by car_makers.Id 
+select car_makers.FullName , car_makers.Id , count(*) from model_list join car_makers on model_list.Maker = car_makers.Id  group by car_makers.Id 
+select car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId   order by cars_data.Horsepower asc limit 1 
+select car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId   order by cars_data.Horsepower asc limit 1 
+select car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId where  cars_data.weight < (select avg(cars_data.Weight) from cars_data  )  
+select car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId where  cars_data.weight < (select avg(cars_data.Weight) from cars_data  )  
+select car_makers.FullName from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  cars_data.Year = 1970  
+select car_makers.FullName from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  cars_data.Year = 1970  group by car_makers.Id 
+select car_names.Make , cars_data.Year from cars_data join car_names on cars_data.Id = car_names.MakeId   order by cars_data.Year asc limit 1 
+select car_makers.Maker , cars_data.Year from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id   order by cars_data.Year asc limit 1 
+select distinct car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId where  cars_data.Year > 1980  
+select distinct car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId where  cars_data.Year > 1980  
+select count(*) , continents.Continent from car_makers join countries on car_makers.Country = countries.CountryId join continents on countries.Continent = continents.ContId  group by continents.ContId 
+select continents.Continent , count(*) from car_makers join countries on car_makers.Country = countries.CountryId join continents on countries.Continent = continents.ContId  group by continents.ContId 
+select countries.CountryName from car_makers join countries on car_makers.Country = countries.CountryId  group by countries.CountryName  order by count(*) desc limit 1 
+select countries.CountryName from car_makers join countries on car_makers.Country = countries.CountryId  group by countries.CountryName  order by count(*) desc limit 1 
+select count(*) , car_makers.FullName from model_list join car_makers on model_list.Maker = car_makers.Id  group by car_makers.Id 
+select count(*) , car_makers.Id , car_makers.FullName from model_list join car_makers on model_list.Maker = car_makers.Id  group by car_makers.Id 
+select cars_data.Accelerate from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  car_makers.Maker = 'amc'  
+select cars_data.Accelerate from cars_data join car_names on cars_data.Id = car_names.MakeId where  car_names.Make = 'amc hornet sportabout (sw)'  
+select count(*) from car_makers join countries on car_makers.Country = countries.CountryId where  countries.CountryName = 'france'  
+select count(*) from car_makers join countries on car_makers.Country = countries.CountryId where  countries.CountryName = 'france'  
+select count(*) from model_list join car_makers on model_list.Maker = car_makers.Id join countries on car_makers.Country = countries.CountryId where  countries.CountryName = 'usa'  
+select count(*) from model_list  
+select count(*) from continents join cars_data on continents.ContId = cars_data.Id where  cars_data.Cylinders = 4  
+select count(*) from continents join cars_data on continents.ContId = cars_data.Id where  cars_data.Cylinders = 4  
+select min(cars_data.Weight) from cars_data where  cars_data.Cylinders = 8 and cars_data.Year = 1974  
+select cars_data.Weight from cars_data where  cars_data.Cylinders = 8 and cars_data.Year = 1974  
+select car_makers.FullName , model_list.Model from model_list join car_makers on model_list.Maker = car_makers.Id  
+select car_makers.FullName , model_list.Model from model_list join car_makers on model_list.Maker = car_makers.Id  
+select countries.CountryName , countries.CountryId from car_makers join countries on car_makers.Country = countries.CountryId  group by countries.CountryId having  count(*) >= 1 
+select countries.CountryName , countries.CountryId from car_makers join countries on car_makers.Country = countries.CountryId  group by countries.CountryId having  count(*) >= 1 
+select count(*) from cars_data where  cars_data.Horsepower > 150  
+select count(*) from cars_data where  cars_data.Horsepower > 150  
+select avg(cars_data.Weight) , cars_data.Year from cars_data  group by cars_data.Year 
+select avg(cars_data.Weight) , cars_data.Year from cars_data  group by cars_data.Year 
+select countries.CountryName from car_makers join countries on car_makers.Country = countries.CountryId join continents on countries.Continent = continents.ContId where  continents.Continent = 'europe'  group by countries.CountryName having  count(*) >= 3 
+select countries.CountryName from countries join continents on countries.Continent = continents.ContId where  continents.Continent = 'europe'  
+select cars_data.Horsepower , model_list.Maker from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model where  cars_data.Cylinders = 3   order by cars_data.Horsepower desc limit 1 
+select cars_data.Horsepower , car_names.Make from cars_data join car_names on cars_data.Id = car_names.MakeId where  cars_data.Cylinders = 3   order by cars_data.Horsepower desc limit 1 
+select model_list.Model from model_list  
+select car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId   order by cars_data.MPG desc limit 1 
+select avg(cars_data.Horsepower) from cars_data where  cars_data.Year < 1980  
+select avg(cars_data.Horsepower) from cars_data where  cars_data.Year < 1980  
+select avg(cars_data.Edispl) from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model where  model_list.Model = 'volvo'  
+select avg(cars_data.Edispl) from cars_data  
+select max(cars_data.Accelerate) , cars_data.Cylinders from cars_data  group by cars_data.Cylinders 
+select max(cars_data.Accelerate) , cars_data.Cylinders from cars_data  group by cars_data.Cylinders 
+select car_names.Model from car_names  group by car_names.Model  order by count(*) desc limit 1 
+select model_list.Model from model_list  
+select count(*) from cars_data where  cars_data.Cylinders > 4  
+select count(*) from cars_data where  cars_data.Cylinders > 4  
+select count(*) from cars_data where  cars_data.Year = 1980  
+select count(*) from cars_data where  cars_data.Year = 1980  
+select count(*) from model_list join car_makers on model_list.Maker = car_makers.Id where  car_makers.FullName = 'American Motor Company'  
+select count(*) from model_list join car_makers on model_list.Maker = car_makers.Id where  car_makers.FullName = 'American Motor Company'  
+select car_makers.FullName , car_makers.Id from model_list join car_makers on model_list.Maker = car_makers.Id  group by car_makers.Id having  count(*) > 3 
+select car_makers.FullName , car_makers.Id from model_list join car_makers on model_list.Maker = car_makers.Id  group by car_makers.Id having  count(*) > 3 
+select distinct model_list.Model from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  car_makers.FullName = 'General Motors' and cars_data.Weight > 3500  
+select distinct model_list.Model from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  car_makers.FullName = 'General Motors' or cars_data.Weight > 3500  
+select cars_data.Year from cars_data where  cars_data.Weight >= 3000  
+select distinct cars_data.Year from cars_data where  cars_data.Weight < 4000 and cars_data.Weight > 3000  
+select cars_data.Horsepower from cars_data   order by cars_data.Accelerate desc limit 1 
+select cars_data.Horsepower from cars_data   order by cars_data.Accelerate desc limit 1 
+select sum(cars_data.Cylinders) from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model   order by cars_data.Accelerate asc limit 1 
+select sum(cars_data.Cylinders) from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model where  model_list.Model = 'volvo'   order by cars_data.Accelerate asc limit 1 
+select count(*) from cars_data where  cars_data.accelerate > (select cars_data.Accelerate from cars_data   order by cars_data.Horsepower desc limit 1 )  
+select count(*) from cars_data where  cars_data.Accelerate > 1   order by cars_data.Horsepower desc limit 1 
+select count(*) from car_makers join countries on car_makers.Country = countries.CountryId  group by  having  count(*) > 2 
+select count(*) from car_makers join countries on car_makers.Country = countries.CountryId  group by  having  count(*) > 2 
+select count(*) from cars_data where  cars_data.Cylinders > 6  
+select sum(cars_data.Cylinders) from cars_data  
+select car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId where  cars_data.Cylinders = 4   order by cars_data.Horsepower desc limit 1 
+select car_names.Model from cars_data join car_names on cars_data.Id = car_names.MakeId where  cars_data.Cylinders = 4   order by cars_data.Horsepower desc limit 1 
+select car_names.MakeId , car_makers.FullName from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  cars_data.horsepower > (select min(cars_data.Horsepower) from cars_data where  cars_data.Cylinders <= 3  )   
+select car_names.MakeId , car_makers.FullName from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  cars_data.horsepower < (select min(cars_data.Horsepower) from cars_data where  cars_data.Cylinders < 4  )   
+select count(*) from continents join cars_data on continents.ContId = cars_data.Id where  cars_data.Cylinders = 8 or cars_data.Year < 1980  
+select max(cars_data.MPG) from cars_data where  cars_data.Cylinders = 8 or cars_data.Year < 1980  
+select model_list.Model from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  cars_data.Weight < 3500 and car_makers.FullName != 'Ford Motor Company'  
+select distinct model_list.Model from cars_data join car_names on cars_data.Id = car_names.MakeId join model_list on car_names.Model = model_list.Model join car_makers on model_list.Maker = car_makers.Id where  cars_data.Weight < 3500 and car_makers.FullName != 'Ford Motor Company'  
+select countries.CountryName from countries   except select countries.CountryName from car_makers join countries on car_makers.Country = countries.CountryId  
+select countries.CountryName from countries where  countries.countryid not in (select car_makers.Country from car_makers  )  
+select car_makers.Id , car_makers.Maker from model_list join car_makers on model_list.Maker = car_makers.Id  group by car_makers.Id having  count(*) >= 2 and count(*) > 3 
+select car_makers.Id , car_makers.Maker from model_list join car_makers on model_list.Maker = car_makers.Id  group by car_makers.Id having  count(*) >= 2 and count(*) > 3 
+select countries.CountryId , countries.CountryName from model_list join car_makers on model_list.Maker = car_makers.Id join countries on car_makers.Country = countries.CountryId where  model_list.Model = 'fiat'  group by countries.CountryId having  count(*) > 3 
+select countries.CountryId , countries.CountryName from car_makers join countries on car_makers.Country = countries.CountryId where  car_makers.Maker = 'Fiat'  group by countries.CountryId having  count(*) > 3 
+select airlines.Country from airlines where  airlines.Airline = 'JetBlue'  
+select airlines.Country from airlines where  airlines.Airline = 'JetBlue'  
+select airlines.Abbreviation from airlines where  airlines.Airline = 'jetblue airways'  
+select airlines.Abbreviation from airlines where  airlines.Airline = 'JetBlue'  
+select airlines.Airline , airlines.Abbreviation from airlines where  airlines.Country = 'USA'  
+select airlines.Airline , airlines.Abbreviation from airlines where  airlines.Country = 'USA'  
+select airports.AirportCode , airports.AirportName from airports where  airports.City = 'Anthony'  
+select airports.AirportCode , airports.AirportName from airports where  airports.City = 'Anthony'  
+select count(*) from airlines  
+select count(*) from airlines  
+select count(*) from airports  
+select count(*) from airports  
+select count(*) from flights  
+select count(*) from flights  
+select airlines.Airline from airlines where  airlines.Abbreviation = 'UAL'  
+select airlines.Airline from airlines where  airlines.Abbreviation = 'UAL'  
+select count(*) from airlines where  airlines.Country = 'USA'  
+select count(*) from airlines where  airlines.Country = 'USA'  
+select airports.City , airports.Country from airports where  airports.AirportName = 'Alton'  
+select airports.City , airports.Country from airports where  airports.City = 'alton'  
+select airports.AirportName from airports where  airports.AirportCode = 'ako'  
+select airports.AirportName from airports where  airports.AirportCode = 'AKO'  
+select airports.AirportName from airports where  airports.City = 'Aberdeen'  
+select airports.AirportName from airports where  airports.City = 'Aberdeen'  
+select count(*) from flights where  flights.SourceAirport = 'APG'  
+select count(*) from flights where  flights.SourceAirport = 'APG'  
+select count(*) from flights where  flights.DestAirport = 'ATO'  
+select count(*) from flights where  flights.SourceAirport = 'ATO'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'   intersect select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Ashley'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen' and airports.AirportName = 'Ashley'  
+select count(*) from flights where  flights.Airline = 'JetBlue'  
+select count(*) from airlines join flights on airlines.uid = flights.Airline where  airlines.Airline = 'jetblue airways'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode join airlines on flights.Airline = airlines.uid where  airlines.Airline = 'united airlines'   
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode join airlines on flights.Airline = airlines.uid where  airlines.Airline = 'united airlines' and airports.AirportCode = 'ASY'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode join airlines on flights.Airline = airlines.uid where  airlines.Airline = 'united airlines'   
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode join airlines on flights.Airline = airlines.uid where  airlines.Airline = 'united airlines' and airports.AirportCode = 'AHD'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode join airlines on flights.Airline = airlines.uid where  airlines.Airline = 'united airlines' and airports.City = 'Aberdeen'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode join airlines on flights.Airline = airlines.uid where  airlines.Airline = 'united airlines' and airports.City = 'Aberdeen'  
+select airports.City from flights join airports on flights.DestAirport = airports.AirportCode  group by airports.City  order by count(*) desc limit 1 
+select airports.City from airports  group by airports.City  order by count(*) desc limit 1 
+select airports.City from flights join airports on flights.DestAirport = airports.AirportCode  group by airports.City  order by count(*) desc limit 1 
+select airports.City from airports  group by airports.City  order by count(*) desc limit 1 
+select airports.AirportCode from flights join airports on flights.DestAirport = airports.AirportCode  group by airports.AirportCode  order by count(*) desc limit 1 
+select airports.AirportCode from flights join airports on flights.DestAirport = airports.AirportCode  group by airports.AirportCode  order by count(*) desc limit 1 
+select airports.AirportCode from flights join airports on flights.DestAirport = airports.AirportCode  group by airports.AirportCode  order by count(*) asc limit 1 
+select airports.AirportCode from flights join airports on flights.DestAirport = airports.AirportCode  group by airports.AirportCode  order by count(*) asc limit 1 
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline  group by airlines.Airline  order by count(*) desc limit 1 
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline  group by airlines.Airline  order by count(*) desc limit 1 
+select airlines.Abbreviation , airlines.Country from airlines join flights on airlines.uid = flights.Airline  group by airlines.uid  order by count(*) asc limit 1 
+select airlines.Abbreviation , airlines.Country from airlines join flights on airlines.uid = flights.Airline  group by airlines.uid  order by count(*) asc limit 1 
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline   intersect select airlines.Airline from airlines join airports on airlines.uid = airports.AirportCode  
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline where  flights.SourceAirport = 'AHD'  
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline   intersect select airlines.Airline from airlines join airports on airlines.uid = airports.AirportCode  
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline where  flights.DestAirport = 'AHD'  
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline where  flights.DestAirport = 'APG'    intersect select airlines.Airline from airlines join flights on airlines.uid = flights.Airline where  flights.DestAirport = 'CVO'  
+select airlines.Airline from flights join airports on flights.DestAirport = airports.AirportCode join airlines on flights.Airline = airlines.uid where  airports.AirportCode = 'APG'    intersect select airlines.Airline from airlines join airports on airlines.uid = airports.AirportCode where  airports.AirportCode = 'CVO'  
+select airlines.Airline from airlines join airports on airlines.uid = airports.AirportCode where  airports.AirportCode = 'CVO'    except select airlines.Airline from airlines join flights on airlines.uid = flights.Airline where  flights.DestAirport = 'APG'  
+select airlines.Airline from airlines join airports on airlines.uid = airports.AirportCode where  airports.AirportCode = 'CVO'    except select airlines.Airline from airlines join airports on airlines.uid = airports.AirportCode where  airports.AirportCode = 'APG'  
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline  group by airlines.Airline having  count(*) >= 10 
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline  group by airlines.Airline having  count(*) >= 10 
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline  group by airlines.Airline having  count(*) < 200 
+select airlines.Airline from airlines join flights on airlines.uid = flights.Airline  group by airlines.Airline having  count(*) < 200 
+select flights.FlightNo from airlines join flights on airlines.uid = flights.Airline where  airlines.Airline = 'united airlines'  
+NO PREDICT
+select flights.FlightNo from flights join airports on flights.DestAirport = airports.AirportCode  
+select flights.FlightNo from flights where  flights.SourceAirport = 'APG'  
+select flights.FlightNo from flights join airports on flights.DestAirport = airports.AirportCode  
+select flights.FlightNo from flights where  flights.SourceAirport = 'APG'  
+select flights.FlightNo from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'  
+select flights.FlightNo from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'  
+select flights.FlightNo from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'  
+select flights.FlightNo from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen' or airports.City = 'Abilene'  
+select count(*) from flights join airports on flights.DestAirport = airports.AirportCode where  airports.City = 'Aberdeen' or airports.City = 'Abilene'  
+select airports.AirportName from airports where  airports.airportcode not in (select flights.DestAirport from flights  )  
+select airports.AirportName from airports where  airports.airportcode not in (select flights.DestAirport from flights  )  
+select count(*) from employee  
+select count(*) from employee  
+select employee.Name from employee   order by employee.Age asc
+select employee.Name , employee.Name from employee   order by employee.Age asc
+select count(*) , employee.City from employee  group by employee.City 
+select count(*) , employee.City from employee  group by employee.City 
+select employee.City from employee where  employee.Age < 30  group by employee.City having  count(*) > 1 
+select employee.City from employee where  employee.Age < 30  group by employee.City having  count(*) > 1 
+select count(*) , shop.Location from shop  group by shop.Location 
+select count(*) , shop.Location from shop  group by shop.Location 
+select shop.Manager_name , shop.District from shop   order by shop.Number_products desc limit 1 
+select shop.Manager_name , shop.District from shop   order by shop.Number_products desc limit 1 
+select min(shop.Number_products) , max(shop.Number_products) from shop  
+select min(shop.Number_products) , max(shop.Number_products) from shop  
+select shop.Name , shop.Location , shop.District from shop   order by shop.Number_products desc
+select shop.Name from shop  group by shop.Name  order by count(*) desc
+select shop.Name from shop where  shop.number_products > (select avg(shop.Number_products) from shop  )  
+select count(hiring.Shop_ID) , shop.Name from hiring join shop on hiring.Shop_ID = shop.Shop_ID  group by shop.Name 
+select employee.Name from evaluation join employee on evaluation.Employee_ID = employee.Employee_ID   order by evaluation.Year_awarded desc limit 1 
+select employee.Name from evaluation join employee on evaluation.Employee_ID = employee.Employee_ID   order by evaluation.Year_awarded desc limit 1 
+select employee.Name from evaluation join employee on evaluation.Employee_ID = employee.Employee_ID   order by evaluation.Bonus desc limit 1 
+select employee.Name from evaluation join employee on evaluation.Employee_ID = employee.Employee_ID   order by evaluation.Bonus desc limit 1 
+select employee.Name from evaluation join employee on evaluation.Employee_ID = employee.Employee_ID  
+select employee.Name from employee where  employee.employee_id not in (select evaluation.Employee_ID from evaluation  )  
+select shop.Name from hiring join employee on hiring.Employee_ID = employee.Employee_ID join shop on hiring.Shop_ID = shop.Shop_ID  group by shop.Name  order by count(*) desc limit 1 
+select shop.Name from hiring join employee on hiring.Employee_ID = employee.Employee_ID join shop on hiring.Shop_ID = shop.Shop_ID  group by shop.Name  order by count(*) desc limit 1 
+select shop.Name from shop where  shop.shop_id not in (select hiring.Shop_ID from hiring  )  
+select shop.Name from shop where  shop.name not in (select employee.Name from employee  )  
+select count(*) , shop.Name , shop.Shop_ID from hiring join employee on hiring.Employee_ID = employee.Employee_ID join shop on hiring.Shop_ID = shop.Shop_ID  group by shop.Shop_ID 
+select count(*) , shop.Name from hiring join employee on hiring.Employee_ID = employee.Employee_ID join shop on hiring.Shop_ID = shop.Shop_ID  group by shop.Shop_ID 
+select sum(evaluation.Bonus) from evaluation  
+select sum(evaluation.Bonus) from evaluation  
+select * from hiring  
+select * from hiring  
+select shop.District from shop where  shop.Number_products < 3000   intersect select shop.District from shop where  shop.Number_products > 10000  
+select shop.District from shop where  shop.Number_products < 3000   intersect select shop.District from shop where  shop.Number_products > 10000  
+select count(shop.Location) from shop  
+select count(shop.Location) from shop  
+select count(*) from Documents  
+select count(*) from Documents  
+select Documents.Document_ID , Documents.Document_Name , Documents.Document_Description from Documents  
+select Documents.Document_ID , Documents.Document_Name , Documents.Document_Description from Documents  
+select Documents.Document_Name , Documents.Template_ID from Documents where  Documents.Document_Description like '%w%'  
+select Documents.Document_Name , Documents.Template_ID from Documents where  Documents.Document_Description = 'w'  
+select Documents.Document_ID , Templates.Template_ID , Documents.Document_Description from Documents join Templates on Documents.Template_ID = Templates.Template_ID where  Documents.Document_Name = 'Robbin CV'  
+select Documents.Document_ID , Templates.Template_ID , Documents.Document_Description from Documents join Templates on Documents.Template_ID = Templates.Template_ID where  Documents.Document_Name = 'Robbin CV'  
+select count(*) from Templates  
+select count(*) , Templates.Template_ID from Documents join Templates on Documents.Template_ID = Templates.Template_ID  group by Templates.Template_ID 
+select count(*) from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code where  Ref_Template_Types.Template_Type_Code = 'PPT'  
+select count(*) from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code where  Ref_Template_Types.Template_Type_Code = 'PPT'  
+select Templates.Template_ID , count(*) , Templates.Template_ID from Documents join Templates on Documents.Template_ID = Templates.Template_ID  group by Templates.Template_ID 
+select distinct Templates.Template_ID , Templates.Version_Number from Documents join Templates on Documents.Template_ID = Templates.Template_ID  
+select Templates.Template_ID , Templates.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID  group by Templates.Template_ID  order by count(*) desc limit 1 
+select Templates.Template_ID , Templates.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID  group by Templates.Template_ID  order by count(*) desc limit 1 
+select Templates.Template_ID from Documents join Templates on Documents.Template_ID = Templates.Template_ID  group by Templates.Template_ID having  count(*) > 1 
+select Templates.Template_ID from Documents join Templates on Documents.Template_ID = Templates.Template_ID  group by Templates.Template_ID having  count(*) > 1 
+select Templates.Template_ID from Templates where  templates.template_id not in (select Documents.Template_ID from Documents  )  
+select Templates.Template_ID from Templates where  templates.template_id not in (select Documents.Template_ID from Documents  )  
+select count(*) from Templates  
+select count(*) from Templates  
+select Templates.Template_ID , Templates.Version_Number , Templates.Template_Type_Code from Templates  
+select Templates.Template_ID , Templates.Version_Number , Templates.Template_Type_Code from Templates  group by Templates.Template_ID 
+select distinct Templates.Template_Type_Code from Templates  
+select distinct Ref_Template_Types.Template_Type_Code from Ref_Template_Types  
+select Templates.Template_ID from Templates where  Templates.Template_Type_Code = 'PP' or Templates.Template_Type_Code = 'PPT'  
+select Templates.Template_ID from Templates where  Templates.Template_Type_Code = 'PP' or Templates.Template_Type_Code = 'PPT'  
+select count(*) from Templates where  Templates.Template_Type_Code = 'CV'  
+select count(*) from Templates join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code where  Ref_Template_Types.Template_Type_Code = 'cv'  
+select Templates.Version_Number , Templates.Template_Type_Code from Templates where  Templates.Version_Number > 5  
+select Templates.Version_Number , Templates.Template_Type_Code from Templates where  Templates.Version_Number > 5  
+select Templates.Template_Type_Code , count(*) from Templates  group by Templates.Template_Type_Code 
+select distinct Ref_Template_Types.Template_Type_Code , count(*) from Templates join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code  group by Ref_Template_Types.Template_Type_Code 
+select Templates.Template_Type_Code from Templates  group by Templates.Template_Type_Code  order by count(*) desc limit 1 
+select Ref_Template_Types.Template_Type_Code from Templates join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code  group by Ref_Template_Types.Template_Type_Code  order by count(*) desc limit 1 
+select Templates.Template_Type_Code from Templates  group by Templates.Template_Type_Code having  count(*) < 3 
+select Ref_Template_Types.Template_Type_Code from Templates join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code  group by Ref_Template_Types.Template_Type_Code having  count(*) < 3 
+select Templates.Version_Number , Templates.Template_Type_Code from Templates   order by Templates.Version_Number asc limit 1 
+select Templates.Version_Number , Ref_Template_Types.Template_Type_Code from Templates join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code   order by Templates.Version_Number asc limit 1 
+select Templates.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID where  Documents.Document_Name = 'Data base'  
+select Templates.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID where  Documents.Document_Name = 'Data base'  
+select Documents.Document_Name from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code where  Ref_Template_Types.Template_Type_Code = 'BK'  
+select Documents.Document_Name from Documents join Templates on Documents.Template_ID = Templates.Template_ID where  Templates.Template_Type_Code = 'BK'  
+select Ref_Template_Types.Template_Type_Code , count(*) , Ref_Template_Types.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code  group by Ref_Template_Types.Template_Type_Code 
+select distinct Ref_Template_Types.Template_Type_Code , count(*) from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code  group by Ref_Template_Types.Template_Type_Code 
+select Ref_Template_Types.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code  group by Ref_Template_Types.Template_Type_Code  order by count(*) desc limit 1 
+select Ref_Template_Types.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code  
+select Ref_Template_Types.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code where  documents.document_id not in (select Documents.Document_ID from Documents  )  
+select Ref_Template_Types.Template_Type_Code from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code where  documents.document_id not in (select Documents.Document_ID from Documents  )  
+select Ref_Template_Types.Template_Type_Code , Ref_Template_Types.Template_Type_Description from Ref_Template_Types  
+select Ref_Template_Types.Template_Type_Code , Ref_Template_Types.Template_Type_Description from Ref_Template_Types  
+select Ref_Template_Types.Template_Type_Description from Ref_Template_Types where  Ref_Template_Types.Template_Type_Code = 'ad'  
+select Ref_Template_Types.Template_Type_Description from Ref_Template_Types where  Ref_Template_Types.Template_Type_Code = 'AD'  
+select Ref_Template_Types.Template_Type_Code from Ref_Template_Types where  Ref_Template_Types.Template_Type_Description = 'book'  
+select Ref_Template_Types.Template_Type_Code from Ref_Template_Types where  Ref_Template_Types.Template_Type_Description = 'Book'  
+select distinct Ref_Template_Types.Template_Type_Description from Documents join Templates on Documents.Template_ID = Templates.Template_ID join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code  
+select distinct Documents.Document_Description from Documents  
+select Templates.Template_ID from Templates join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code where  Ref_Template_Types.Template_Type_Description = 'Presentation'  
+select Templates.Template_ID from Templates join Ref_Template_Types on Templates.Template_Type_Code = Ref_Template_Types.Template_Type_Code where  Ref_Template_Types.Template_Type_Description = 'Presentation'  
+select count(*) from Paragraphs  
+select count(*) from Paragraphs  
+select count(*) from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Documents.Document_Name = 'Summer Show'  
+select count(*) from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Documents.Document_Name = 'Summer Show'  
+select * from Paragraphs where  Paragraphs.Paragraph_Text = 'Korea'  
+select * from Paragraphs where  Paragraphs.Paragraph_Text = 'Korea'  
+select Paragraphs.Paragraph_ID , Paragraphs.Paragraph_Text from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Documents.Document_Name = 'Welcome to NY'  
+select Paragraphs.Paragraph_ID , Paragraphs.Paragraph_Text from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Documents.Document_Name = 'Welcome to NY'  
+select Paragraphs.Paragraph_Text from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Documents.Document_Name = 'customer reviews'  
+select Paragraphs.Paragraph_Text from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Documents.Document_Name = 'Customer reviews'  
+select Documents.Document_ID , count(*) from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID 
+select distinct Documents.Document_ID , count(*) from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID  order by Documents.Document_ID asc
+select Documents.Document_ID , Documents.Document_Name , count(*) from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID 
+select Documents.Document_ID , Documents.Document_Name , count(*) from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID 
+select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID having  count(*) >= 2 
+select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID having  count(*) >= 2 
+select Documents.Document_ID , Documents.Document_Name from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID  order by count(*) desc limit 1 
+select Documents.Document_ID , Documents.Document_Name from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID  order by count(*) desc limit 1 
+select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID  order by count(*) asc limit 1 
+select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID  order by count(*) asc limit 1 
+select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID having  count(*) between 1 and 2 
+select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID  group by Documents.Document_ID having  count(*) between 1 and 2 
+select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Paragraphs.Paragraph_Text = 'Brazil'    intersect select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Paragraphs.Paragraph_Text = 'Ireland'  
+select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Paragraphs.Paragraph_Text = 'Brazil'    intersect select Documents.Document_ID from Paragraphs join Documents on Paragraphs.Document_ID = Documents.Document_ID where  Paragraphs.Paragraph_Text = 'Ireland'  
+select count(*) from teacher  
+select count(*) from teacher  
+select teacher.Name from teacher   order by teacher.Age asc
+select teacher.Name from teacher   order by teacher.Age asc
+select teacher.Age , teacher.Hometown from teacher  
+select teacher.Age , teacher.Hometown from teacher  
+select teacher.Name from teacher where  teacher.Hometown != 'Little Lever Urban District'  
+select teacher.Name from teacher where  teacher.Hometown != 'Little Lever Urban District'  
+select teacher.Name from teacher where  teacher.Age = 32 or teacher.Age = 33  
+select teacher.Name from teacher  
+select teacher.Hometown from teacher   order by teacher.Age asc limit 1 
+select teacher.Name from teacher   order by teacher.Age asc limit 1 
+select distinct teacher.Hometown , count(*) from teacher  group by teacher.Hometown 
+select count(*) , teacher.Hometown from teacher  group by teacher.Hometown 
+select max(teacher.Hometown) from teacher  
+select max(teacher.Hometown) from teacher  
+select teacher.Hometown from teacher  group by teacher.Hometown having  count(*) >= 2 
+sele from teacher  group by  having  count(*) >= 2 
+select teacher.Name , course.Course from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID  
+select teacher.Name , teacher.Teacher_ID from teacher  group by teacher.Teacher_ID 
+select teacher.Name , course.Course from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID   order by teacher.Name asc
+select teacher.Name , course.Course from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID   order by teacher.Name asc
+select teacher.Name from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID where  course.Course = 'math'  
+select teacher.Name from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID where  course.Course = 'Math'  
+select teacher.Name , count(*) from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID  group by teacher.Name 
+select teacher.Name , count(*) from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID  group by teacher.Name 
+select teacher.Name from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID  group by teacher.Name having  count(*) >= 2 
+select teacher.Name from course_arrange join teacher on course_arrange.Teacher_ID = teacher.Teacher_ID join course on course_arrange.Course_ID = course.Course_ID  group by teacher.Name having  count(*) >= 2 
+select teacher.Name from teacher where  teacher.teacher_id not in (select course_arrange.Teacher_ID from course_arrange  )  
+select teacher.Name from teacher where  teacher.teacher_id not in (select course_arrange.Teacher_ID from course_arrange  )  
+select count(*) from visitor where  visitor.Age < 30  
+select visitor.Name from visitor where  visitor.Level_of_membership > 4   order by visitor.Level_of_membership desc
+select avg(visitor.Age) from visitor where  visitor.Level_of_membership <= 4  
+select visitor.Name , visitor.Level_of_membership from visitor where  visitor.Level_of_membership > 4   order by visitor.Age desc
+select museum.Museum_ID , museum.Name from museum   order by museum.Num_of_Staff desc limit 1 
+select avg(museum.Num_of_Staff) from museum where  museum.Open_Year < 2009  
+select museum.Open_Year , sum(museum.Num_of_Staff) from museum where  museum.Name = 'Plaza Museum'  group by museum.Open_Year 
+select museum.Name from museum where  museum.num_of_staff > (select min(museum.Num_of_Staff) from museum where  museum.Open_Year > 2010  )   
+select visitor.ID , visitor.Name , visitor.Age from visit join visitor on visit.visitor_ID = visitor.ID  group by visitor.ID having  count(*) > 1 
+select visitor.ID , visitor.Name , visitor.Level_of_membership from visit join visitor on visit.visitor_ID = visitor.ID join museum on visit.Museum_ID = museum.Museum_ID  group by visitor.ID  order by sum(visit.Total_spent) desc limit 1 
+select museum.Museum_ID , museum.Name from museum   order by museum.Name desc limit 1 
+select museum.Name from museum where  museum.name not in (select visitor.Name from visitor  )  
+select visitor.Name , visitor.Age from visit join visitor on visit.visitor_ID = visitor.ID   order by visit.Num_of_Ticket desc limit 1 
+select avg(visit.Num_of_Ticket) , max(visit.Num_of_Ticket) from visit  
+select sum(visit.Num_of_Ticket) from visit join visitor on visit.visitor_ID = visitor.ID where  visitor.Level_of_membership = 1  
+select visitor.Name from visit join visitor on visit.visitor_ID = visitor.ID join museum on visit.Museum_ID = museum.Museum_ID where  museum.Open_Year < 2009 and museum.Open_Year > 2011  
+select count(*) from visitor where  visitor.id not in (select visit.visitor_ID from visit join museum on visit.Museum_ID = museum.Museum_ID where  museum.Open_Year > 2010  )   
+select count(*) from museum where  museum.Open_Year > 2013 or museum.Open_Year < 2008  
+select count(*) from players  
+select count(*) from players  
+select count(*) from matches  
+select count(*) from matches  
+select players.first_name , players.birth_date from players where  players.country_code = 'USA'  
+select players.first_name , players.birth_date from players where  players.country_code = 'USA'  
+select avg(matches.loser_age) , matches.winner_age from matches  group by matches.winner_age 
+select avg(matches.loser_age) , matches.winner_age from matches  group by matches.winner_age 
+select avg(matches.winner_rank) from matches  
+select avg(matches.winner_rank) from matches  
+select max(matches.loser_rank) from matches  
+select matches.best_of from matches  
+select count(players.country_code) from players  
+select count(players.country_code) from players  
+select count(matches.loser_name) from matches  
+select count(matches.loser_name) from matches  
+select matches.tourney_name from matches  group by matches.tourney_name having  count(*) > 10 
+select rankings.ranking from matches join players on matches.winner_id = players.player_id join rankings on players.player_id = rankings.player_id  group by rankings.ranking having  count(*) > 10 
+select matches.winner_name from matches join players on matches.winner_id = players.player_id where  players.birth_date = 2013    intersect select matches.winner_name from matches join players on matches.winner_id = players.player_id where  players.birth_date = 2016  
+select players.first_name , players.last_name from players where  players.birth_date = 2013    intersect select players.first_name , players.last_name from players where  players.birth_date = 2016  
+select count(*) from matches where  matches.year = 2013 or matches.year = 2016  
+select count(*) from matches join players on matches.winner_id = players.player_id where  players.birth_date = 2013 or players.birth_date = 2016  
+select players.country_code , players.first_name from matches join players on matches.winner_id = players.player_id where  matches.tourney_name = 'WTA Championships'   intersect select players.country_code , players.first_name from matches join players on matches.winner_id = players.player_id where  matches.tourney_name = 'Australian Open'  
+select players.first_name , players.country_code from matches join players on matches.winner_id = players.player_id where  matches.tourney_name = 'WTA Championships'   intersect select players.first_name , players.country_code from matches join players on matches.winner_id = players.player_id where  matches.tourney_name = 'Australian Open'  
+select players.first_name , players.country_code from players   order by players.birth_date asc limit 1 
+select players.first_name , players.country_code from players   order by players.birth_date asc limit 1 
+select players.first_name , players.last_name from players   order by players.birth_date asc
+select players.first_name , players.last_name from players   order by players.birth_date asc
+select players.first_name , players.last_name from players where  players.hand = 'L'   order by players.birth_date asc
+select players.first_name , players.last_name from players   order by players.birth_date asc
+select players.first_name , players.country_code from rankings join players on rankings.player_id = players.player_id   order by rankings.tours desc limit 1 
+select players.first_name , players.country_code from rankings join players on rankings.player_id = players.player_id   order by rankings.tours desc limit 1 
+select matches.year from matches  group by matches.year  order by count(*) desc limit 1 
+select matches.year from matches  group by matches.year  order by count(*) desc limit 1 
+select rankings.ranking , matches.winner_rank_points from matches join players on matches.winner_id = players.player_id join rankings on players.player_id = rankings.player_id where  players.last_name = 'Won'  
+select matches.winner_name , sum(rankings.ranking_points) from matches join players on matches.winner_id = players.player_id join rankings on players.player_id = rankings.player_id  group by matches.winner_name  order by count(*) desc limit 1 
+select matches.winner_name from matches join players on matches.winner_id = players.player_id join rankings on players.player_id = rankings.player_id where  matches.tourney_name = 'Australian Open'   order by rankings.ranking_points desc limit 1 
+select matches.winner_name from matches join players on matches.winner_id = players.player_id join rankings on players.player_id = rankings.player_id where  matches.tourney_name = 'Australian Open'   order by rankings.ranking_points desc limit 1 
+select count(*) from matches join players on matches.winner_id = players.player_id   order by matches.minutes desc limit 1 
+select count(*) from matches join players on matches.winner_id = players.player_id   order by matches.match_num desc limit 1 
+select count(*) from players  
+select count(*) from players  
+select sum(rankings.ranking_points) , players.first_name from rankings join players on rankings.player_id = players.player_id  group by players.player_id 
+select players.first_name , sum(rankings.ranking_points) from rankings join players on rankings.player_id = players.player_id  group by players.first_name 
+select count(*) , players.country_code from players  group by players.country_code 
+select count(*) , players.country_code from players  group by players.country_code 
+select players.country_code from players  group by players.country_code  order by count(*) desc limit 1 
+select players.country_code from players  group by players.country_code  order by count(*) desc limit 1 
+select players.country_code from players  group by players.country_code having  count(*) > 50 
+select players.country_code from players  group by players.country_code having  count(*) > 50 
+select sum(rankings.tours) , rankings.ranking_date from rankings  group by rankings.ranking_date 
+select sum(rankings.tours) , rankings.ranking_date from rankings  group by rankings.ranking_date 
+select count(*) , matches.year from matches  group by matches.year 
+select count(*) , matches.year from matches  group by matches.year 
+select count(*) from players  
+select count(*) from players  
+select distinct count(*) from matches join players on matches.winner_id = players.player_id where  matches.tourney_name = 'WTA Championships'  
+select count(matches.winner_hand) from matches where  matches.tourney_name = 'WTA Championships'  
+select players.first_name , players.country_code , players.birth_date from matches join players on matches.winner_id = players.player_id join rankings on players.player_id = rankings.player_id   order by rankings.ranking_points desc limit 1 
+select players.first_name , players.country_code , players.birth_date from matches join players on matches.winner_id = players.player_id   order by matches.winner_rank_points desc limit 1 
+select count(*) , players.hand from players  group by players.hand 
+select count(*) from players  
+select count(*) from ship where  ship.disposition_of_ship = 'Captured'  
+select battle.name , ship.tonnage from ship join battle on ship.lost_in_battle = battle.id   order by battle.name desc
+select battle.name , battle.date , battle.result from battle  group by battle.id 
+select max(death.caused_by_ship_id) , min(death.caused_by_ship_id) from death  
+select avg(death.caused_by_ship_id) from death  
+select count(*) from ship join battle on ship.lost_in_battle = battle.id where  ship.tonnage = 't'  
+select battle.name , battle.result from battle where  battle.bulgarian_commander != 'Boril'  
+select distinct battle.id , battle.name from ship join battle on ship.lost_in_battle = battle.id where  ship.ship_type = 'Brig'  
+select battle.id , battle.name from death join ship on death.caused_by_ship_id = ship.id join battle on ship.lost_in_battle = battle.id  group by battle.id having  sum(death.killed) > 10 
+select ship.id , ship.name from ship where  ship.id > (select sum(death.caused_by_ship_id) from death  )  
+select distinct battle.name from battle where  battle.bulgarian_commander = 'Kaloyan' and battle.latin_commander = 'Baldwin I'  
+select count(battle.result) from battle  
+select count(*) from battle where  battle.id not in (select ship.lost_in_battle from ship where  ship.tonnage = 225  )   
+select battle.name , battle.date from ship join battle on ship.lost_in_battle = battle.id where  ship.name = 'Lettice'   intersect select battle.name , battle.date from ship join battle on ship.lost_in_battle = battle.id where  ship.name = 'HMS Atalanta'  
+select battle.name , battle.result , battle.bulgarian_commander from battle where  battle.id not in (select ship.lost_in_battle from ship where  ship.location = 'English Channel'  )   
+select death.note from death  
+select Addresses.address_id , Addresses.other_address_details from Addresses where  Addresses.line_1 = 1 and Addresses.line_2 = 2  
+select count(*) from Addresses  
+select count(*) from Courses  
+select count(*) from Courses  
+select Courses.course_description from Courses where  Courses.course_name = 'math'  
+select Courses.course_description from Courses where  Courses.course_name = 'math'  
+select Addresses.zip_postcode from Addresses where  Addresses.city = 'Port Chelsea'  
+select Addresses.zip_postcode from Addresses  
+select Departments.department_name , Departments.department_id from Degree_Programs join Departments on Degree_Programs.department_id = Departments.department_id  group by Departments.department_id  order by count(*) desc limit 1 
+select Departments.department_name , Departments.department_id from Degree_Programs join Departments on Degree_Programs.department_id = Departments.department_id  group by Departments.department_id  order by count(*) desc limit 1 
+select count(*) from Departments where  departments.department_id not in (select Degree_Programs.department_id from Degree_Programs  )  
+select count(*) from Degree_Programs join Departments on Degree_Programs.department_id = Departments.department_id  
+select count(Degree_Programs.degree_summary_name) from Degree_Programs  
+select count(*) from Degree_Programs  
+select count(*) from Degree_Programs  
+select count(*) from Degree_Programs  
+select Sections.section_name , Sections.section_description from Sections  
+select Sections.section_name , Sections.section_description from Sections  
+select Courses.course_name , Courses.course_id from Sections join Courses on Sections.course_id = Courses.course_id  group by Courses.course_id having  count(*) <= 2 
+select Courses.course_name , Courses.course_id from Sections join Courses on Sections.course_id = Courses.course_id  group by Courses.course_id having  count(*) < 2 
+NO PREDICT
+select Sections.section_name from Sections  
+select Semesters.semester_name , Semesters.semester_id from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Semesters on Student_Enrolment.semester_id = Semesters.semester_id  group by Semesters.semester_id  order by count(*) desc limit 1 
+select Semesters.semester_name , Semesters.semester_id from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Semesters on Student_Enrolment.semester_id = Semesters.semester_id  group by Semesters.semester_id  order by Students.date_first_registered desc limit 1 
+select Departments.department_description from Departments where  Departments.department_name like '%computer%'  
+select Departments.department_description from Departments where  Departments.department_name like '%computer%'  
+select Students.first_name , Students.middle_name , Students.last_name , Degree_Programs.degree_program_id from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Semesters on Student_Enrolment.semester_id = Semesters.semester_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id  group by Students.first_name,Students.middle_name,Students.last_name,Degree_Programs.degree_program_id having  count(*) = 2 and count(*) = 1 
+select Students.first_name , Students.middle_name , Students.last_name , Students.student_id , Students.first_name from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id  group by Students.student_id having  count(*) = 2 
+select Students.first_name , Students.middle_name , Students.last_name from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id where  Degree_Programs.degree_program_id = 'Bachelor'  
+select count(*) from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id join Addresses on Students.permanent_address_id = Addresses.address_id where  Degree_Programs.degree_program_id = 'Bachelor'  
+select count(*) from Student_Enrolment_Courses join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id join Students on Student_Enrolment.student_id = Students.student_id join Addresses on Students.permanent_address_id = Addresses.address_id   order by count(*) desc limit 1 
+select Degree_Programs.degree_summary_name from Student_Enrolment join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id  group by Degree_Programs.degree_summary_name  order by count(*) desc limit 1 
+select count(*) from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Addresses on Students.permanent_address_id = Addresses.address_id   order by count(*) desc limit 1 
+select Degree_Programs.degree_program_id , Degree_Programs.degree_summary_name from Student_Enrolment join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id  group by Degree_Programs.degree_program_id  order by count(*) desc limit 1 
+select Students.student_id , Students.first_name , Students.middle_name , Students.last_name , Students.cell_mobile_number , Students.student_id from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id where  degree_programs.degree_program_id not in (select Degree_Programs.degree_program_id from Student_Enrolment join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id  group by Degree_Programs.degree_program_id  order by count(*) desc limit 1 )  
+select count(*) from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id join Addresses on Students.permanent_address_id = Addresses.address_id where  degree_programs.degree_program_id not in (select Degree_Programs.degree_program_id from Student_Enrolment join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id  group by Degree_Programs.degree_program_id  order by count(*) desc limit 1 )  
+select Semesters.semester_name from Semesters where  semesters.semester_id not in (select Student_Enrolment.semester_id from Student_Enrolment  )  
+select Semesters.semester_name from Semesters where  semesters.semester_id not in (select Student_Enrolment.semester_id from Student_Enrolment  )  
+select Courses.course_name from Student_Enrolment_Courses join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id join Courses on Student_Enrolment_Courses.course_id = Courses.course_id  
+select Courses.course_name from Student_Enrolment_Courses join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id join Courses on Student_Enrolment_Courses.course_id = Courses.course_id  
+select Courses.course_name from Student_Enrolment_Courses join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id join Courses on Student_Enrolment_Courses.course_id = Courses.course_id join Students on Student_Enrolment.student_id = Students.student_id   order by Students.cell_mobile_number desc limit 1 
+select Courses.course_name from Student_Enrolment_Courses join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id join Courses on Student_Enrolment_Courses.course_id = Courses.course_id  group by Courses.course_name  order by count(*) desc limit 1 
+select Students.last_name from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id join Addresses on Students.permanent_address_id = Addresses.address_id where  Addresses.state_province_county = 'NorthCarolina' and degree_programs.degree_program_id not in (select Degree_Programs.degree_program_id from Degree_Programs  )  
+select Students.last_name from Student_Enrolment join Students on Student_Enrolment.student_id = Students.student_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id join Addresses on Students.permanent_address_id = Addresses.address_id where  Addresses.state_province_county = 'NorthCarolina' and degree_programs.degree_program_id not in (select Degree_Programs.degree_program_id from Degree_Programs  )  
+select Transcripts.transcript_date , Transcripts.transcript_id from Transcript_Contents join Student_Enrolment_Courses on Transcript_Contents.student_course_id = Student_Enrolment_Courses.student_course_id join Courses on Student_Enrolment_Courses.course_id = Courses.course_id join Transcripts on Transcript_Contents.transcript_id = Transcripts.transcript_id  group by Transcripts.transcript_id having  count(*) >= 2 
+select Transcripts.transcript_date , Transcripts.transcript_id from Transcript_Contents join Student_Enrolment_Courses on Transcript_Contents.student_course_id = Student_Enrolment_Courses.student_course_id join Courses on Student_Enrolment_Courses.course_id = Courses.course_id join Transcripts on Transcript_Contents.transcript_id = Transcripts.transcript_id  group by Transcripts.transcript_id having  count(*) >= 2 
+select count(*) from Students where  Students.first_name = 'Timmothy' and Students.last_name = 'Ward'  
+select Students.cell_mobile_number from Students where  Students.first_name = 'timothy ward'  
+select Students.first_name , Students.middle_name , Students.last_name from Students  
+select Students.first_name , Students.middle_name , Students.last_name from Students  
+select Students.first_name , Students.middle_name , Students.last_name from Transcript_Contents join Student_Enrolment_Courses on Transcript_Contents.student_course_id = Student_Enrolment_Courses.student_course_id join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id join Students on Student_Enrolment.student_id = Students.student_id join Transcripts on Transcript_Contents.transcript_id = Transcripts.transcript_id   order by Transcripts.transcript_date asc limit 1 
+select Students.first_name , Students.middle_name , Students.last_name from Students   order by Students.last_name asc limit 1 
+select Students.permanent_address_id , Students.first_name from Students join Addresses on Students.permanent_address_id = Addresses.address_id  
+select Students.first_name from Students join Addresses on Students.permanent_address_id = Addresses.address_id where  Students.current_address_id = 1  group by Students.first_name  order by count(*) desc limit 1 
+select Addresses.address_id , Addresses.line_1 from Students join Addresses on Students.permanent_address_id = Addresses.address_id  group by Addresses.address_id  order by count(*) desc limit 1 
+select Addresses.address_id , Addresses.line_1 , Addresses.line_2 from Students join Addresses on Students.permanent_address_id = Addresses.address_id  group by Addresses.address_id  order by count(*) desc limit 1 
+select count(*) from Addresses  
+select avg(Transcripts.transcript_date) from Transcripts  
+select count(*) from Addresses  
+select Transcripts.transcript_date , * from Transcripts   order by Transcripts.transcript_date asc limit 1 
+select count(*) from Transcripts  
+select count(*) from Transcripts  
+select Transcripts.transcript_date from Transcripts  
+select Students.last_name from Students  
+select max(*) , Courses.course_id , Transcripts.transcript_id from Transcript_Contents join Student_Enrolment_Courses on Transcript_Contents.student_course_id = Student_Enrolment_Courses.student_course_id join Courses on Student_Enrolment_Courses.course_id = Courses.course_id join Transcripts on Transcript_Contents.transcript_id = Transcripts.transcript_id  group by Transcripts.transcript_id 
+select max(Students.cell_mobile_number) , Courses.course_id from Sections join Courses on Sections.course_id = Courses.course_id join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id where  Sections.section_name = 'a'  group by Courses.course_id 
+select Transcripts.transcript_id from Transcript_Contents join Student_Enrolment_Courses on Transcript_Contents.student_course_id = Student_Enrolment_Courses.student_course_id join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id join Students on Student_Enrolment.student_id = Students.student_id join Transcripts on Transcript_Contents.transcript_id = Transcripts.transcript_id   order by Students.cell_mobile_number asc limit 1 
+select Transcripts.transcript_date , Transcripts.transcript_id from Transcript_Contents join Student_Enrolment_Courses on Transcript_Contents.student_course_id = Student_Enrolment_Courses.student_course_id join Student_Enrolment on Student_Enrolment_Courses.student_enrolment_id = Student_Enrolment.student_enrolment_id join Students on Student_Enrolment.student_id = Students.student_id join Transcripts on Transcript_Contents.transcript_id = Transcripts.transcript_id   order by Students.cell_mobile_number asc limit 1 
+select Semesters.semester_name from Student_Enrolment join Semesters on Student_Enrolment.semester_id = Semesters.semester_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id where  Degree_Programs.degree_summary_name = 'Master'    intersect select Semesters.semester_name from Student_Enrolment join Semesters on Student_Enrolment.semester_id = Semesters.semester_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id where  Degree_Programs.degree_summary_name = 'Bachelor'  
+select Semesters.semester_id from Student_Enrolment join Semesters on Student_Enrolment.semester_id = Semesters.semester_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id where  Degree_Programs.degree_summary_name = 'Master'    intersect select Semesters.semester_id from Student_Enrolment join Semesters on Student_Enrolment.semester_id = Semesters.semester_id join Degree_Programs on Student_Enrolment.degree_program_id = Degree_Programs.degree_program_id where  Degree_Programs.degree_summary_name = 'Bachelor'  
+select count(*) from Students join Addresses on Students.permanent_address_id = Addresses.address_id  
+select distinct count(*) from Students join Addresses on Students.permanent_address_id = Addresses.address_id  
+select * from Students  
+select count(*) from Students join Addresses on Students.permanent_address_id = Addresses.address_id  
+select Sections.section_description from Sections  
+select Sections.section_description from Sections where  Sections.section_name = 'h'  
+select Students.first_name from Students join Addresses on Students.permanent_address_id = Addresses.address_id where  Addresses.country = 'Haiti' or Students.cell_mobile_number = 09700166582  
+select Students.first_name from Students join Addresses on Students.permanent_address_id = Addresses.address_id where  Addresses.country = 'Haiti' or Students.cell_mobile_number = 09700166582  
+select Cartoon.Title from Cartoon   order by Cartoon.Title asc
+select Cartoon.Title from Cartoon  
+select count(*) from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Directed_by = 'Ben Jones'  
+select TV_Channel.series_name from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Directed_by = 'Ben Jones'  
+select count(*) from Cartoon where  Cartoon.Written_by = 'Joseph Kuhr'  
+select count(*) from Cartoon where  Cartoon.Written_by = 'Joseph Kuhr'  
+select Cartoon.Title from TV_series join TV_Channel on TV_series.Channel = TV_Channel.id join Cartoon on TV_Channel.id = Cartoon.Channel   order by TV_series.Air_Date asc
+select count(*) from TV_series join TV_Channel on TV_series.Channel = TV_Channel.id   order by TV_series.Air_Date asc
+select Cartoon.Title from Cartoon where  Cartoon.Directed_by = 'Ben Jones' or Cartoon.Directed_by = 'Brandon Vietti'  
+select Cartoon.Title from Cartoon where  Cartoon.Directed_by = 'Ben Jones' or Cartoon.Directed_by = 'Brandon Vietti'  
+select TV_Channel.Country , count(*) from TV_Channel  group by TV_Channel.Country  order by count(*) desc limit 1 
+select TV_Channel.Country , count(*) from TV_Channel  group by TV_Channel.Country  order by count(*) desc limit 1 
+select count(*) , TV_Channel.Content from TV_series join TV_Channel on TV_series.Channel = TV_Channel.id  group by TV_Channel.Content 
+select count(*) , TV_Channel.Content from TV_series join TV_Channel on TV_series.Channel = TV_Channel.id  group by TV_Channel.Content 
+select TV_Channel.Content from TV_Channel where  TV_Channel.series_name = 'Sky Radio'  
+select TV_Channel.Content from TV_Channel where  TV_Channel.series_name = 'sky radio'  
+select TV_Channel.Package_Option from TV_Channel where  TV_Channel.series_name = 'Sky Radio'  
+select TV_Channel.Package_Option from TV_Channel where  TV_Channel.series_name = 'Sky Radio'  
+select count(*) from TV_Channel where  TV_Channel.Language = 'English'  
+select count(*) from TV_Channel where  TV_Channel.Language = 'English'  
+select TV_Channel.Language , count(*) from TV_Channel  group by TV_Channel.Language  order by count(*) asc limit 1 
+select TV_Channel.Language , count(*) from TV_Channel  group by TV_Channel.Language  order by count(*) asc limit 1 
+select TV_Channel.Language , count(*) from TV_Channel  group by TV_Channel.Language 
+select count(*) , TV_Channel.Language from TV_Channel  group by TV_Channel.Language 
+select TV_Channel.series_name from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Title = 'The Rise of the Blue Beetle!'  
+select TV_Channel.series_name from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id  
+select Cartoon.Title from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  TV_Channel.series_name = 'Sky Radio'  
+select Cartoon.Title from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  TV_Channel.series_name = 'Sky Radio'  
+select TV_series.Episode from TV_series   order by TV_series.Rating asc
+select TV_series.Episode from TV_series   order by TV_series.Rating asc
+select TV_series.Rating , TV_series.Episode from TV_series   order by TV_series.Rating desc limit 1 
+select TV_series.Episode , TV_series.Rating from TV_series   order by TV_series.Episode desc limit 1 
+select min(TV_series.Share) , max(TV_series.Share) from TV_series  
+select max(TV_series.Share) , min(TV_series.Share) from TV_series  
+select TV_series.Air_Date from TV_series where  TV_series.Episode = 'A Love of a Lifetime'  
+select TV_series.Episode from TV_series  
+select TV_series.Weekly_Rank from TV_series where  TV_series.Episode = 'A Love of a Lifetime'  
+select TV_series.Weekly_Rank from TV_series  
+select TV_series.Channel , TV_Channel.series_name from TV_series join TV_Channel on TV_series.Channel = TV_Channel.id where  TV_series.Episode = 'A Love of a Lifetime'  
+select TV_Channel.series_name from TV_series join TV_Channel on TV_series.Channel = TV_Channel.id where  TV_series.Episode = 'A Love of a Lifetime'  
+select TV_series.Episode from TV_series join TV_Channel on TV_series.Channel = TV_Channel.id where  TV_Channel.series_name = 'Sky Radio'  
+select TV_series.Episode from TV_series join TV_Channel on TV_series.Channel = TV_Channel.id where  TV_Channel.series_name = 'Sky Radio'  
+select count(*) from Cartoon  
+select count(*) from Cartoon  
+select Cartoon.Production_code , Cartoon.Channel from Cartoon   order by Cartoon.Channel desc limit 1 
+select Cartoon.Production_code , Cartoon.Channel from Cartoon   order by Cartoon.Channel desc limit 1 
+select TV_Channel.Package_Option , TV_Channel.series_name from TV_Channel   order by TV_Channel.Hight_definition_TV desc limit 1 
+select TV_Channel.Package_Option , TV_Channel.series_name from TV_Channel   order by TV_Channel.Hight_definition_TV desc limit 1 
+select TV_Channel.Country from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Written_by = 'Todd Casey'  
+select TV_Channel.Country from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Written_by = 'Todd Casey'  
+select TV_Channel.Country from TV_Channel where  tv_channel.id not in (select Cartoon.Channel from Cartoon where  Cartoon.Written_by = 'Todd Casey'  )   
+select TV_Channel.Country from TV_Channel where  tv_channel.id not in (select Cartoon.Channel from Cartoon where  Cartoon.Written_by = 'Todd Casey'  )   
+select TV_Channel.series_name , TV_Channel.Country from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Directed_by = 'Ben Jones'   intersect select TV_Channel.series_name , TV_Channel.Country from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Directed_by = 'Michael Chang'  
+select TV_Channel.series_name , TV_Channel.Country from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Directed_by = 'Ben Jones'   intersect select TV_Channel.series_name , TV_Channel.Country from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Directed_by = 'Michael Chang'  
+select TV_Channel.Pixel_aspect_ratio_PAR , TV_Channel.Country from TV_Channel where  TV_Channel.Language != 'English'  
+select TV_Channel.Pixel_aspect_ratio_PAR , TV_Channel.Country from TV_Channel where  TV_Channel.Language != 'English'  
+select TV_Channel.id from TV_Channel  group by TV_Channel.id having  count(*) > 2 
+select TV_Channel.id from TV_Channel  group by TV_Channel.id having  count(*) > 2 
+select TV_Channel.id from TV_Channel where  tv_channel.id not in (select Cartoon.Channel from Cartoon where  Cartoon.Directed_by = 'Ben Jones'  )   
+select TV_Channel.id from TV_Channel   except select TV_Channel.id from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Directed_by = 'Ben Jones'  
+select TV_Channel.Package_Option from TV_Channel   except select TV_Channel.Package_Option from Cartoon join TV_Channel on Cartoon.Channel = TV_Channel.id where  Cartoon.Directed_by = 'Ben Jones'  
+select TV_Channel.Package_Option from TV_Channel where  tv_channel.id not in (select Cartoon.Channel from Cartoon where  Cartoon.Directed_by = 'Ben Jones'  )   
+select count(*) from poker_player  
+select count(*) from poker_player  
+select poker_player.Earnings from poker_player   order by poker_player.Earnings desc
+select poker_player.Earnings from poker_player  
+select poker_player.Final_Table_Made , poker_player.Best_Finish from poker_player  
+select poker_player.Final_Table_Made , poker_player.Best_Finish from poker_player  
+select avg(poker_player.Earnings) from poker_player  
+select avg(poker_player.Earnings) from poker_player  
+select poker_player.Money_Rank from poker_player   order by poker_player.Earnings desc limit 1 
+select poker_player.Money_Rank from poker_player   order by poker_player.Earnings desc limit 1 
+select max(poker_player.Final_Table_Made) from poker_player where  poker_player.Earnings < 200000  
+select max(poker_player.Final_Table_Made) from poker_player where  poker_player.Earnings < 200000  
+select people.Name from people  
+select people.Name from people  
+select people.Name from poker_player join people on poker_player.People_ID = people.People_ID where  poker_player.Earnings > 300000  
+select people.Name from poker_player join people on poker_player.People_ID = people.People_ID where  poker_player.Earnings > 300000  
+select people.Name from poker_player join people on poker_player.People_ID = people.People_ID   order by poker_player.Final_Table_Made asc
+select people.Name , sum(poker_player.Final_Table_Made) from poker_player join people on poker_player.People_ID = people.People_ID  group by people.Name 
+select people.Birth_Date from poker_player join people on poker_player.People_ID = people.People_ID   order by poker_player.Earnings asc limit 1 
+select people.Birth_Date from poker_player join people on poker_player.People_ID = people.People_ID   order by poker_player.Earnings asc limit 1 
+select poker_player.Money_Rank from poker_player join people on poker_player.People_ID = people.People_ID   order by people.Height desc limit 1 
+select poker_player.Money_Rank from poker_player join people on poker_player.People_ID = people.People_ID   order by people.Height desc limit 1 
+select avg(poker_player.Earnings) from poker_player join people on poker_player.People_ID = people.People_ID where  people.Height > 200  
+select avg(poker_player.Earnings) from poker_player join people on poker_player.People_ID = people.People_ID where  people.Height > 200  
+select people.Name from poker_player join people on poker_player.People_ID = people.People_ID   order by poker_player.Earnings desc
+select people.Name from poker_player join people on poker_player.People_ID = people.People_ID   order by poker_player.Earnings desc
+select distinct people.Nationality , count(*) from people  group by people.Nationality 
+select count(*) , people.Nationality from people  group by people.Nationality 
+select max(people.Nationality) from people  
+select people.Nationality from people  group by people.Nationality  order by count(*) desc limit 1 
+select people.Nationality from people  group by people.Nationality having  count(*) >= 2 
+select people.Nationality from people  group by people.Nationality having  count(*) >= 2 
+select people.Name , people.Birth_Date from people   order by people.Name asc
+select people.Name , people.Birth_Date from people   order by people.Name asc
+select people.Name from people where  people.Nationality != 'Russia'  
+select people.Name from people where  people.Nationality != 'Russia'  
+select people.Name from people where  people.people_id not in (select poker_player.People_ID from poker_player  )  
+select people.Name from people where  people.people_id not in (select poker_player.People_ID from poker_player  )  
+select count(people.Nationality) from people  
+select count(*) , people.Nationality from people  group by people.Nationality 
+select count(*) from AREA_CODE_STATE  
+select CONTESTANTS.contestant_number , CONTESTANTS.contestant_name from CONTESTANTS   order by CONTESTANTS.contestant_name desc
+select VOTES.vote_id , VOTES.phone_number , VOTES.state from VOTES  
+select count(*) from AREA_CODE_STATE  
+sele from VOTES   intersect sele from AREA_CODE_STATE  
+select CONTESTANTS.contestant_name from CONTESTANTS where  CONTESTANTS.contestant_name != 'Jessie Alloway'  
+select distinct VOTES.state , VOTES.created from VOTES  
+select CONTESTANTS.contestant_number , CONTESTANTS.contestant_name from VOTES join CONTESTANTS on VOTES.contestant_number = CONTESTANTS.contestant_number  group by CONTESTANTS.contestant_number having  count(*) >= 2 
+select CONTESTANTS.contestant_number , CONTESTANTS.contestant_name from VOTES join CONTESTANTS on VOTES.contestant_number = CONTESTANTS.contestant_number  group by CONTESTANTS.contestant_number  order by count(*) asc limit 1 
+select count(*) from VOTES join AREA_CODE_STATE on VOTES.state = AREA_CODE_STATE.state where  AREA_CODE_STATE.state = 'NY' or AREA_CODE_STATE.state = 'CA'  
+select count(*) from CONTESTANTS where  contestants.contestant_number not in (select VOTES.contestant_number from VOTES  )  
+select count(*) from VOTES join AREA_CODE_STATE on VOTES.state = AREA_CODE_STATE.state   order by count(*) desc limit 1 
+select VOTES.created , AREA_CODE_STATE.state , VOTES.phone_number from VOTES join CONTESTANTS on VOTES.contestant_number = CONTESTANTS.contestant_number join AREA_CODE_STATE on VOTES.state = AREA_CODE_STATE.state where  CONTESTANTS.contestant_name = 'Tabatha Gehling'  
+select count(*) from VOTES join CONTESTANTS on VOTES.contestant_number = CONTESTANTS.contestant_number join AREA_CODE_STATE on VOTES.state = AREA_CODE_STATE.state where  CONTESTANTS.contestant_name = 'Tabatha Gehling'   intersect select count(*) from VOTES join CONTESTANTS on VOTES.contestant_number = CONTESTANTS.contestant_number join AREA_CODE_STATE on VOTES.state = AREA_CODE_STATE.state where  CONTESTANTS.contestant_name = 'Kelly Clauss'  
+select CONTESTANTS.contestant_name from CONTESTANTS where  CONTESTANTS.contestant_name like '%al%'  
+select country.Name from country where  country.IndepYear > 1950  
+select country.Name from country where  country.Code2 = 'BE' and country.IndepYear > 1950  
+select count(*) from country where  country.GovernmentForm = 'Republic'  
+select count(*) from country where  country.GovernmentForm = 'Republic'  
+select sum(country.SurfaceArea) from country where  country.Region = 'Caribbean'  
+select country.SurfaceArea from country  
+select country.Continent from country where  country.Name = 'Anguilla'  
+select city.Name from city join country on city.CountryCode = country.Code where  country.Name = 'Anguilla'  
+select country.Region from city join country on city.CountryCode = country.Code where  city.Name = 'Kabul'  
+select country.Region from city join country on city.CountryCode = country.Code where  city.Name = 'Kabul'  
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Name = 'Aruba'   order by countrylanguage.Percentage desc limit 1 
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Name = 'Aruba'   order by countrylanguage.Percentage desc limit 1 
+select country.Population , country.LifeExpectancy from country where  country.Name = 'Brazil'  
+select country.Population , country.LifeExpectancy from country where  country.Name = 'brazil'  
+select country.Region , country.Population from country where  country.Name = 'angola'  
+select country.Region , country.Population from country where  country.Name = 'angola'  
+select avg(country.LifeExpectancy) from country where  country.Region = 'Central Africa'  
+select avg(country.LifeExpectancy) from country where  country.Region = 'Central Africa'  
+select country.Name from country where  country.Continent = 'Asia'   order by country.LifeExpectancy asc limit 1 
+select country.Name from country   order by country.LifeExpectancy asc limit 1 
+select sum(country.Population) , max(country.GNP) from country where  country.Continent = 'Asia'  
+select sum(country.Population) , max(country.GNP) from country where  country.Continent = 'Asia'  
+select avg(country.LifeExpectancy) from country where  country.GovernmentForm = 'Republic'  
+select avg(country.LifeExpectancy) from country where  country.Continent = 'Africa' and country.GovernmentForm = 'Republic'  
+select sum(country.SurfaceArea) from country where  country.Continent = 'asia'  
+select sum(country.SurfaceArea) from country where  country.Continent = 'Asia' or country.Continent = 'Europe'  
+select sum(city.Population) from city where  city.District = 'Gelderland'  
+select sum(country.Population) from city join country on city.CountryCode = country.Code where  city.District = 'gelderland'  
+select avg(country.GNP) , sum(country.Population) from country where  country.GovernmentForm = 'US'  
+select avg(country.GNP) , sum(country.Population) from country where  country.GovernmentForm = 'US'  
+select count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Code2 = 'IN'  
+select count(countrylanguage.Language) from countrylanguage  
+select count(country.GovernmentForm) from country where  country.Continent = 'Africa'  
+select count(country.GovernmentForm) from country where  country.Continent = 'Africa'  
+select count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Name = 'Aruba'  
+select count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Name = 'Aruba'  
+select count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Name = 'afghanistan'  
+select count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Name = 'Afghanistan'  
+select country.Name from countrylanguage join country on countrylanguage.CountryCode = country.Code   order by countrylanguage.Language desc limit 1 
+select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode   order by countrylanguage.Language desc limit 1 
+select country.Continent from countrylanguage join country on countrylanguage.CountryCode = country.Code   order by countrylanguage.Language desc limit 1 
+select country.Continent from countrylanguage join country on countrylanguage.CountryCode = country.Code   order by countrylanguage.Language desc limit 1 
+select count(*) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'English'    intersect select count(*) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'Dutch'  
+select count(*) from countrylanguage where  countrylanguage.Language = 'English'    intersect select count(*) from countrylanguage where  countrylanguage.Language = 'Dutch'  
+select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  countrylanguage.Language = 'english'  
+select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  countrylanguage.Language = 'English'    intersect select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  countrylanguage.Language = 'French'  
+select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  countrylanguage.Language = 'English'    intersect select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  countrylanguage.Language = 'French'  
+select country.Name from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'English'    intersect select country.Name from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'French'  
+select count(country.Continent) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'Chinese'  
+select count(country.Continent) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'Chinese'  
+select country.Region from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'English' or countrylanguage.Language = 'Dutch'  
+select country.Region from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'Dutch' or countrylanguage.Language = 'English'  
+select country.Name from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'English'    union select country.Name from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'Dutch'  
+select country.Name from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'English' or countrylanguage.Language = 'Dutch' and country.Code2 = 'AN'  
+select countrylanguage.Language from countrylanguage   order by countrylanguage.Percentage desc limit 1 
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Code2 = 'IS'    intersect select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Code2 = 'BY'  
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.GovernmentForm = 'Republic'  group by countrylanguage.Language having  count(*) = 1 
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Code = 'ARE'    intersect select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Code2 = 'BY' and country.GovernmentForm = 'Republic'  
+select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  countrylanguage.Language = 'English'   order by city.Population desc limit 1 
+select max(city.Name) from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  countrylanguage.Language = 'English'  
+select country.Name , country.Population , country.LifeExpectancy from country   order by country.SurfaceArea desc limit 1 
+select country.Name , country.Population , country.LifeExpectancy from country where  country.Continent = 'asia'   order by country.LifeExpectancy desc limit 1 
+select avg(country.LifeExpectancy) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language != 'English'  
+select avg(country.LifeExpectancy) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language != 'English'  
+select sum(country.Population) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Code2 = 'IN' and countrylanguage.Language != 'English'  
+select sum(country.Population) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language != 'English'  
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.HeadOfState = 'Beatrix'  
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.HeadOfState = 'Beatrix'  
+select count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Code = 'ARE' and country.IndepYear < 1930  
+select count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.IndepYear < 1930  
+select country.Name from country where  country.surfacearea > (select max(country.SurfaceArea) from country where  country.Continent = 'Europe'  )   
+select country.Name from country where  country.surfacearea > (select max(country.SurfaceArea) from country where  country.Continent = 'Europe'  )   
+select country.Name from country where  country.Continent = 'africa' and country.population < (select min(country.Population) from country where  country.Continent = 'Asia'  )   
+select country.Name from country where  country.Continent = 'africa' and country.population < (select min(country.Population) from country where  country.Continent = 'Asia'  )   
+select country.Name from country where  country.Continent = 'asia' and country.population > (select max(country.Population) from country where  country.Continent = 'Africa'  )   
+select country.Name from country where  country.Continent = 'asia' and country.population > (select max(country.Population) from country where  country.Continent = 'Africa'  )   
+select country.Code from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language != 'English'  
+select country.Code from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language != 'English'  
+select country.Code from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'English'  
+select country.Code from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language != 'English'  
+select country.Code from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language != 'English' and country.GovernmentForm != 'Republic'  
+select country.Code from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language != 'English' and country.GovernmentForm != 'Republic'  
+select city.Name from city join country on city.CountryCode = country.Code where  country.Code = 'ARE'    intersect select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  country.Code2 = 'IN' and countrylanguage.Language != 'English'  
+select city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  country.Continent = 'Europe' and countrylanguage.Language != 'English'  
+select distinct city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  countrylanguage.Language = 'Chinese'  
+select distinct city.Name from city join country on city.CountryCode = country.Code join countrylanguage on country.Code = countrylanguage.CountryCode where  country.Continent = 'Asia' and countrylanguage.Language = 'Chinese'  
+select country.Name , country.IndepYear , country.SurfaceArea from city join country on city.CountryCode = country.Code where  city.Name = 'independence'   order by country.Population asc limit 1 
+select country.Name , country.IndepYear , country.SurfaceArea from city join country on city.CountryCode = country.Code where  city.Name = 'independence'   order by country.Population asc limit 1 
+select country.Population , country.Name , country.HeadOfState from country   order by country.SurfaceArea desc limit 1 
+select country.Name , country.Population , country.HeadOfState from country   order by country.SurfaceArea desc limit 1 
+select country.Name , count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language >= 3  group by country.Code 
+select country.Name , count(countrylanguage.Language) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language > 2  group by country.Name 
+select count(*) , city.District from city where  city.population > (select avg(city.Population) from city  )  group by city.District 
+select count(*) , city.District from city where  city.population > (select avg(city.Population) from city  )  group by city.District 
+select country.Name , sum(country.Population) , country.GovernmentForm from country  group by country.GovernmentForm having  avg(country.LifeExpectancy) > 72 
+select distinct country.GovernmentForm , sum(country.Population) from country  group by country.GovernmentForm having  avg(country.LifeExpectancy) > 72 
+select avg(country.LifeExpectancy) , sum(country.Population) , country.Continent from country  group by country.Continent having  avg(country.LifeExpectancy) < 72 
+select distinct country.Continent , sum(country.Population) , avg(country.LifeExpectancy) from country  group by country.Continent having  avg(country.LifeExpectancy) < 72 
+select country.Name , country.SurfaceArea from country   order by country.SurfaceArea desc limit 5 
+select country.Name , country.SurfaceArea from country   order by country.SurfaceArea desc limit 1 
+select country.Name from country   order by country.Population desc limit 3 
+select max(country.Name) from country  
+select city.Name from city   order by city.Population asc limit 3 
+select country.Name from country   order by country.Population asc limit 1 
+select count(*) from country where  country.Continent = 'Asia'  
+select count(*) from country where  country.Continent = 'Asia'  
+select country.Name from country where  country.Continent = 'Europe' and country.Population = 80000  
+select country.Name from country where  country.Continent = 'Europe'  
+select sum(country.Population) , avg(country.SurfaceArea) from country where  country.Continent = 'North America' and country.SurfaceArea > 3000  
+select sum(country.Population) , avg(country.SurfaceArea) from country where  country.SurfaceArea > 3000  
+select city.Name from city where  city.Population between 160000 and 900000  
+select city.Name from city where  city.Population between 160000 and 900000  
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code  group by countrylanguage.Language  order by count(*) desc limit 1 
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code where  country.Code2 = 'IS'  group by countrylanguage.Language  order by count(*) desc limit 1 
+select countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code  group by countrylanguage.Language  order by count(*) desc limit 1 
+select country.Code , countrylanguage.Language from countrylanguage join country on countrylanguage.CountryCode = country.Code  group by country.Code  order by countrylanguage.Percentage desc limit 1 
+select count(*) from countrylanguage join country on countrylanguage.CountryCode = country.Code   order by countrylanguage.Percentage desc limit 1 
+select count(*) from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'Spanish'  
+select country.Code from countrylanguage join country on countrylanguage.CountryCode = country.Code   order by countrylanguage.Percentage desc limit 1 
+select country.Code from countrylanguage join country on countrylanguage.CountryCode = country.Code where  countrylanguage.Language = 'Spanish'  
+select count(*) from conductor  
+select count(*) from conductor  
+select conductor.Name from conductor   order by conductor.Age asc
+select conductor.Name from conductor   order by conductor.Age asc
+select conductor.Name from conductor where  conductor.Nationality != 'USA'  
+select conductor.Name from conductor   except select conductor.Name from conductor where  conductor.Nationality = 'USA'  
+select orchestra.Record_Company from orchestra   order by orchestra.Year_of_Founded desc
+select orchestra.Record_Company , orchestra.Year_of_Founded from orchestra  
+select avg(show.Attendance) from show  
+select avg(show.Attendance) from show  
+select max(performance.Share) , min(performance.Share) from performance where  performance.Type != 'Live final'  
+select max(performance.Share) , min(performance.Share) from performance   except select max(performance.Share) , min(performance.Share) from performance where  performance.Type = 'Live final'  
+select count(conductor.Nationality) from conductor  
+select count(*) , conductor.Nationality from conductor  group by conductor.Nationality 
+select conductor.Name from conductor   order by conductor.Year_of_Work desc
+select conductor.Name , sum(conductor.Year_of_Work) from conductor  group by conductor.Name 
+select conductor.Name from conductor   order by conductor.Year_of_Work desc limit 1 
+select conductor.Name from conductor   order by conductor.Year_of_Work desc limit 1 
+select count(*) from conductor  
+select count(*) from conductor  
+select conductor.Name from orchestra join conductor on orchestra.Conductor_ID = conductor.Conductor_ID  group by conductor.Name having  count(*) > 1 
+select conductor.Name from orchestra join conductor on orchestra.Conductor_ID = conductor.Conductor_ID  group by conductor.Name having  count(*) > 1 
+select conductor.Name from orchestra join conductor on orchestra.Conductor_ID = conductor.Conductor_ID  group by conductor.Name  order by count(*) desc limit 1 
+select conductor.Name from orchestra join conductor on orchestra.Conductor_ID = conductor.Conductor_ID  group by conductor.Name  order by count(*) desc limit 1 
+select conductor.Name from orchestra join conductor on orchestra.Conductor_ID = conductor.Conductor_ID where  orchestra.Year_of_Founded > 2008  
+select conductor.Name from orchestra join conductor on orchestra.Conductor_ID = conductor.Conductor_ID where  orchestra.Year_of_Founded > 2008  
+select distinct orchestra.Record_Company , count(*) from orchestra  group by orchestra.Record_Company 
+select count(*) , orchestra.Record_Company from orchestra  group by orchestra.Record_Company 
+select orchestra.Major_Record_Format from orchestra  
+select orchestra.Major_Record_Format from orchestra  
+select orchestra.Record_Company from orchestra  group by orchestra.Record_Company  order by count(*) desc limit 1 
+select orchestra.Record_Company from orchestra  group by orchestra.Record_Company  order by count(*) desc limit 1 
+select conductor.Name from performance join orchestra on performance.Orchestra_ID = orchestra.Orchestra_ID join conductor on orchestra.Conductor_ID = conductor.Conductor_ID where  performance.performance_id not in (select performance.Performance_ID from performance  )  
+select orchestra.Orchestra from orchestra where  orchestra.orchestra_id not in (select performance.Orchestra_ID from performance  )  
+select orchestra.Record_Company from orchestra where  orchestra.Year_of_Founded < 2003 and orchestra.Year_of_Founded > 2003  
+select orchestra.Record_Company from orchestra where  orchestra.Year_of_Founded < 2003 and orchestra.Year_of_Founded > 2003  
+select count(*) from orchestra where  orchestra.Major_Record_Format = 'CD' or orchestra.Major_Record_Format = 'DVD'  
+select count(*) from orchestra where  orchestra.Major_Record_Format = 'CD' or orchestra.Major_Record_Format = 'DVD'  
+select orchestra.Year_of_Founded from performance join orchestra on performance.Orchestra_ID = orchestra.Orchestra_ID  group by orchestra.Year_of_Founded having  count(*) > 1 
+select orchestra.Year_of_Founded from performance join orchestra on performance.Orchestra_ID = orchestra.Orchestra_ID  group by orchestra.Year_of_Founded having  count(*) > 1 
+select count(*) from Highschooler  
+select count(*) from Highschooler  
+select Highschooler.name , Highschooler.grade from Highschooler  group by Highschooler.ID 
+select Highschooler.name , Highschooler.grade from Highschooler  group by Highschooler.ID 
+select Highschooler.grade from Highschooler  
+select Highschooler.grade , Highschooler.ID from Highschooler  group by Highschooler.ID 
+select Highschooler.grade from Highschooler where  Highschooler.name = 'Kyle'  
+select Highschooler.grade from Highschooler where  Highschooler.name = 'Kyle'  
+select Highschooler.name from Highschooler where  Highschooler.grade = 10  
+select Highschooler.name from Highschooler where  Highschooler.grade = 10  
+select Highschooler.ID from Highschooler where  Highschooler.name = 'Kyle'  
+select Highschooler.ID from Highschooler where  Highschooler.name = 'kyle'  
+select count(*) from Highschooler where  Highschooler.grade = 9 or Highschooler.grade = 10  
+select count(*) from Highschooler where  Highschooler.grade = 9 or Highschooler.grade = 10  
+select count(*) , Highschooler.grade from Highschooler  group by Highschooler.grade 
+select count(*) , Highschooler.grade from Highschooler  group by Highschooler.grade 
+select Highschooler.grade from Highschooler  group by Highschooler.grade  order by count(*) desc limit 1 
+select Highschooler.grade from Highschooler  group by Highschooler.grade  order by count(*) desc limit 1 
+select Highschooler.grade from Friend join Highschooler on Friend.friend_id = Highschooler.ID where  Friend.student_id >= 4  
+select Highschooler.grade from Highschooler  group by Highschooler.grade having  count(*) >= 4 
+select Friend.student_id , count(*) from Friend  group by Friend.student_id 
+select count(*) , Friend.student_id from Friend  group by Friend.student_id 
+select Highschooler.name , count(*) from Friend join Highschooler on Friend.friend_id = Highschooler.ID  group by Highschooler.name 
+select Highschooler.name , count(*) from Friend join Highschooler on Friend.friend_id = Highschooler.ID  group by Highschooler.name 
+select Highschooler.name from Friend join Highschooler on Friend.friend_id = Highschooler.ID  group by Highschooler.name  order by count(*) desc limit 1 
+select Highschooler.name from Friend join Highschooler on Friend.friend_id = Highschooler.ID  group by Highschooler.name  order by count(*) desc limit 1 
+select Highschooler.name from Friend join Highschooler on Friend.friend_id = Highschooler.ID  group by Highschooler.name having  count(*) >= 3 
+select Highschooler.name from Friend join Highschooler on Friend.friend_id = Highschooler.ID  group by Highschooler.name having  count(*) >= 3 
+select Highschooler.name from Highschooler where  Highschooler.name = 'kyle'  
+select count(*) from Highschooler  
+select count(*) from Friend join Highschooler on Friend.friend_id = Highschooler.ID where  Highschooler.name = 'Kyle'  
+select count(*) from Friend join Highschooler on Friend.friend_id = Highschooler.ID where  Highschooler.name = 'Kyle'  
+select Friend.student_id from Friend where  friend.student_id not in (select Friend.student_id from Friend  )  
+select Friend.student_id from Friend where  friend.student_id not in (select Friend.student_id from Friend  )  
+select Highschooler.name from Highschooler where  highschooler.id not in (select Friend.friend_id from Friend  )  
+select Highschooler.name from Highschooler where  highschooler.id not in (select Friend.friend_id from Friend  )  
+select Highschooler.ID from Friend join Highschooler on Friend.friend_id = Highschooler.ID   intersect select Highschooler.ID from Likes join Highschooler on Likes.student_id = Highschooler.ID  
+select Friend.student_id from Friend   intersect select Friend.student_id from Friend join Highschooler on Friend.friend_id = Highschooler.ID join Likes on Highschooler.ID = Likes.student_id  
+select Highschooler.name from Friend join Highschooler on Friend.friend_id = Highschooler.ID   intersect select Highschooler.name from Likes join Highschooler on Likes.student_id = Highschooler.ID  
+select Highschooler.name from Friend join Highschooler on Friend.friend_id = Highschooler.ID   intersect select Highschooler.name from Likes join Highschooler on Likes.student_id = Highschooler.ID  
+select count(*) , Likes.student_id from Likes  group by Likes.student_id 
+select count(*) , Likes.student_id from Likes  group by Likes.student_id 
+select Highschooler.name , count(*) from Likes join Highschooler on Likes.student_id = Highschooler.ID  group by Highschooler.name 
+select Highschooler.name , count(*) from Likes join Highschooler on Likes.student_id = Highschooler.ID  group by Highschooler.name 
+select Highschooler.name from Likes join Highschooler on Likes.student_id = Highschooler.ID  group by Highschooler.name  order by count(*) desc limit 1 
+select Highschooler.name from Likes join Highschooler on Likes.student_id = Highschooler.ID  group by Highschooler.name  order by count(*) desc limit 1 
+select Highschooler.name from Likes join Highschooler on Likes.student_id = Highschooler.ID  group by Highschooler.name having  count(*) >= 2 
+select Highschooler.name from Likes join Highschooler on Likes.student_id = Highschooler.ID  group by Highschooler.name having  count(*) >= 2 
+select Highschooler.name from Friend join Highschooler on Friend.friend_id = Highschooler.ID where  Highschooler.grade > 5  group by Highschooler.name having  count(*) >= 2 
+select Highschooler.name from Friend join Highschooler on Friend.friend_id = Highschooler.ID where  Highschooler.grade > 5  group by Highschooler.name having  count(*) >= 2 
+select count(*) from Likes join Highschooler on Likes.student_id = Highschooler.ID where  Highschooler.name = 'kyle'  
+select count(*) from Likes join Highschooler on Likes.student_id = Highschooler.ID where  Highschooler.name = 'Kyle'   order by count(*) desc limit 1 
+select avg(Friend.student_id) from Friend  
+select avg(Friend.student_id) from Friend  
+select min(Friend.student_id) from Friend where  friend.student_id not in (select Friend.student_id from Friend  )  
+select min(Highschooler.grade) from Highschooler where  highschooler.id not in (select Friend.friend_id from Friend  )  
+select Owners.state from Owners   intersect select Owners.state from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id join Professionals on Treatments.professional_id = Professionals.professional_id join Owners on Dogs.owner_id = Owners.owner_id  
+select Owners.state from Owners  
+select avg(Dogs.age) from Dogs where  dogs.dog_id in (select Treatments.dog_id from Treatments  )  
+select avg(Dogs.age) from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id  
+select Professionals.professional_id , Professionals.last_name , Professionals.cell_number from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id where Professionals.state = 'Indiana' group by Professionals.professional_id having  count(*) > 2 
+select Professionals.professional_id , Professionals.last_name , Professionals.cell_number from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id where  Professionals.state = 'Indiana'  group by Professionals.professional_id having  count(*) > 2 
+select Dogs.name from Dogs where  dogs.dog_id not in (select Treatments.dog_id from Treatments  group by Treatments.dog_id having  sum(Treatments.cost_of_treatment) > 1000 )   
+select Dogs.name from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id where  Treatments.treatment_id > 1000  
+select Owners.first_name from Dogs join Owners on Dogs.owner_id = Owners.owner_id  
+select Professionals.first_name from Professionals   intersect select Professionals.first_name from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id join Professionals on Treatments.professional_id = Professionals.professional_id  
+select Professionals.professional_id , Professionals.role_code , Professionals.email_address from Professionals where  professionals.professional_id not in (select Treatments.professional_id from Treatments  )  
+select Professionals.professional_id , Professionals.role_code , Professionals.email_address from Professionals where  professionals.professional_id not in (select Treatments.professional_id from Treatments  )  
+select Owners.owner_id , Owners.first_name , Owners.last_name from Dogs join Owners on Dogs.owner_id = Owners.owner_id  group by Owners.owner_id  order by count(*) desc limit 1 
+select Owners.owner_id , Owners.first_name , Owners.last_name from Dogs join Owners on Dogs.owner_id = Owners.owner_id  group by Owners.owner_id  order by count(*) desc limit 1 
+select Professionals.professional_id , Professionals.role_code , Professionals.first_name from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id  group by Professionals.professional_id having  count(*) >= 2 
+select Professionals.professional_id , Professionals.role_code , Professionals.first_name from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id  group by Professionals.professional_id having  count(*) >= 2 
+select Breeds.breed_name from Dogs join Breeds on Dogs.breed_code = Breeds.breed_code  group by Breeds.breed_name  order by count(*) desc limit 1 
+NO PREDICT
+select Owners.owner_id , Owners.last_name from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id join Owners on Dogs.owner_id = Owners.owner_id  group by Owners.owner_id  order by count(*) desc limit 1 
+select Owners.owner_id , Owners.last_name from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id join Owners on Dogs.owner_id = Owners.owner_id  group by Owners.owner_id  order by count(*) desc limit 1 
+select Treatment_Types.treatment_type_description from Treatments join Treatment_Types on Treatments.treatment_type_code = Treatment_Types.treatment_type_code  group by Treatment_Types.treatment_type_description  order by sum(Treatments.cost_of_treatment) asc limit 1 
+select Treatment_Types.treatment_type_description from Treatments join Treatment_Types on Treatments.treatment_type_code = Treatment_Types.treatment_type_code  group by Treatment_Types.treatment_type_description  order by sum(Treatments.cost_of_treatment) asc limit 1 
+select Owners.owner_id , Owners.zip_code from Dogs join Owners on Dogs.owner_id = Owners.owner_id  group by Owners.owner_id  order by count(*) desc limit 1 
+select Owners.owner_id , Owners.zip_code from Dogs join Owners on Dogs.owner_id = Owners.owner_id  group by Owners.owner_id  order by count(*) desc limit 1 
+select Professionals.professional_id , Professionals.cell_number from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id join Treatment_Types on Treatments.treatment_type_code = Treatment_Types.treatment_type_code  group by Professionals.professional_id having  count(*) >= 2 
+select Professionals.professional_id , Professionals.cell_number from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id  group by Professionals.professional_id having  count(*) >= 2 
+select Professionals.first_name , Professionals.last_name from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id where  treatments.cost_of_treatment < (select avg(Treatments.cost_of_treatment) from Treatments  )  
+select Professionals.first_name , Professionals.last_name from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id where  treatments.cost_of_treatment < (select avg(Treatments.cost_of_treatment) from Treatments  )  
+select Treatments.date_of_treatment , Treatments.treatment_id from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id  group by Treatments.treatment_id 
+select Treatments.date_of_treatment , Owners.first_name , Treatments.treatment_id from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id join Owners on Dogs.owner_id = Owners.owner_id  group by Treatments.treatment_id 
+select Treatments.cost_of_treatment , Treatment_Types.treatment_type_description , Treatments.treatment_id from Treatments join Treatment_Types on Treatments.treatment_type_code = Treatment_Types.treatment_type_code  group by Treatments.treatment_id 
+select Treatments.cost_of_treatment , Treatment_Types.treatment_type_description , Treatments.treatment_id from Treatments join Treatment_Types on Treatments.treatment_type_code = Treatment_Types.treatment_type_code  group by Treatments.treatment_id 
+select Owners.first_name , Owners.last_name , Dogs.size_code from Dogs join Owners on Dogs.owner_id = Owners.owner_id  
+select Owners.first_name , Owners.last_name , Dogs.size_code from Dogs join Owners on Dogs.owner_id = Owners.owner_id  
+select Owners.first_name , Dogs.name from Dogs join Owners on Dogs.owner_id = Owners.owner_id  
+select Owners.first_name , Dogs.name from Dogs join Owners on Dogs.owner_id = Owners.owner_id  
+select Dogs.name , Treatments.date_of_treatment from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id   order by Dogs.name asc limit 1 
+select Dogs.name , Treatments.date_of_treatment from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id join Breeds on Dogs.breed_code = Breeds.breed_code  group by Dogs.name,Treatments.date_of_treatment  order by count(*) asc limit 1 
+select Owners.first_name , Dogs.name from Dogs join Owners on Dogs.owner_id = Owners.owner_id where  Owners.state = 'Virginia'  
+select Owners.first_name , Dogs.name from Dogs join Owners on Dogs.owner_id = Owners.owner_id where  Owners.state = 'Virginia'  
+select Dogs.date_arrived , Dogs.date_departed from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id  
+select Dogs.date_arrived , Dogs.date_departed from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id  
+select Owners.last_name from Dogs join Owners on Dogs.owner_id = Owners.owner_id where  dogs.age = (select min(Dogs.age) from Dogs  )  
+select Owners.last_name from Dogs join Owners on Dogs.owner_id = Owners.owner_id where  dogs.age = (select min(Dogs.age) from Dogs  )  
+select Professionals.email_address from Professionals where  Professionals.state = 'Hawaii' or Professionals.state = 'Wisconsin'  
+select Professionals.email_address from Professionals where  Professionals.state = 'Hawaii' or Professionals.state = 'Wisconsin'  
+select Dogs.date_arrived , Dogs.date_departed from Dogs  
+select Dogs.date_arrived , Dogs.date_departed from Dogs  
+select count(*) from Dogs where  dogs.dog_id not in (select Treatments.dog_id from Treatments  )  
+select count(*) from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id  
+select count(*) from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id  
+select count(*) from Treatments join Professionals on Treatments.professional_id = Professionals.professional_id  
+select Professionals.role_code , Professionals.street , Professionals.city , Professionals.state from Professionals  
+select Professionals.role_code , Professionals.street , Professionals.city , Professionals.state from Professionals  
+select Owners.first_name , Owners.last_name , Owners.email_address from Dogs join Owners on Dogs.owner_id = Owners.owner_id where  Dogs.name like '%north%'  
+select Owners.first_name , Owners.last_name , Owners.email_address from Dogs join Owners on Dogs.owner_id = Owners.owner_id where  Dogs.name like '%north%'  
+select count(*) from Dogs where  dogs.age < (select avg(Dogs.age) from Dogs  )  
+select count(Dogs.age) from Dogs  
+select max(Treatments.cost_of_treatment) from Treatments  
+select max(Treatments.cost_of_treatment) from Treatments  
+select count(*) from Dogs where  dogs.dog_id not in (select Treatments.dog_id from Treatments  )  
+select count(*) from Dogs where  dogs.dog_id not in (select Treatments.dog_id from Treatments  )  
+select count(*) from Owners where  owners.owner_id not in (select Dogs.owner_id from Dogs  )  
+select count(*) from Owners where  owners.owner_id not in (select Owners.owner_id from Owners  )  
+select count(*) from Professionals where  professionals.professional_id not in (select Treatments.professional_id from Treatments  )  
+select count(*) from Professionals where  professionals.professional_id not in (select Treatments.professional_id from Treatments  )  
+select Dogs.name , Dogs.age , Dogs.weight from Dogs where  Dogs.abandoned_yn = 1  
+select Dogs.name , Dogs.age , Dogs.weight from Dogs where  Dogs.abandoned_yn = 1  
+select avg(Dogs.age) from Dogs  
+select avg(Dogs.age) from Dogs  
+select max(Dogs.age) from Dogs  
+select max(Dogs.age) from Dogs  
+select Charges.charge_type , Charges.charge_amount from Charges  
+select Charges.charge_type , Charges.charge_amount from Charges  
+select max(Treatments.cost_of_treatment) from Treatments  
+select max(Charges.charge_amount) from Charges  
+select Professionals.email_address , Professionals.cell_number , Professionals.home_phone from Professionals  
+select Professionals.email_address , Professionals.cell_number , Professionals.home_phone , Professionals.professional_id from Professionals  group by Professionals.professional_id 
+select Charges.charge_type , Charges.charge_type from Charges  
+select distinct Charges.charge_type , Charges.charge_type from Charges  
+select Professionals.first_name , Sizes.size_description from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id join Professionals on Treatments.professional_id = Professionals.professional_id join Sizes on Dogs.size_code = Sizes.size_code  
+select Professionals.first_name , Sizes.size_description from Treatments join Dogs on Treatments.dog_id = Dogs.dog_id join Professionals on Treatments.professional_id = Professionals.professional_id join Sizes on Dogs.size_code = Sizes.size_code  
+select count(*) from singer  
+select count(*) from singer  
+select singer.Name from singer   order by singer.Net_Worth_Millions asc
+select singer.Name from singer   order by singer.Net_Worth_Millions asc
+select singer.Birth_Year , singer.Citizenship from singer  
+select singer.Birth_Year , singer.Citizenship from singer  
+select singer.Name from singer where  singer.Citizenship != 'France'  
+select singer.Name from singer  
+select singer.Name from singer where  singer.Birth_Year = 1948 or singer.Birth_Year = 1949  
+select singer.Name from singer where  singer.Birth_Year = 1948 or singer.Birth_Year = 1949  
+select singer.Name from singer   order by singer.Net_Worth_Millions desc limit 1 
+select singer.Name from singer   order by singer.Net_Worth_Millions desc limit 1 
+select distinct singer.Citizenship , count(*) from singer  group by singer.Citizenship 
+select count(*) , singer.Citizenship from singer  group by singer.Citizenship 
+select max(singer.Citizenship) from singer  
+select singer.Citizenship from singer  
+select distinct singer.Citizenship , max(singer.Net_Worth_Millions) from singer  group by singer.Citizenship 
+select max(singer.Net_Worth_Millions) , singer.Citizenship from singer  group by singer.Citizenship 
+select song.Title , singer.Name from song join singer on song.Singer_ID = singer.Singer_ID  
+select song.Title , singer.Name from song join singer on song.Singer_ID = singer.Singer_ID  
+select distinct singer.Name from song join singer on song.Singer_ID = singer.Singer_ID where  song.Sales > 300000  
+select distinct singer.Name from song join singer on song.Singer_ID = singer.Singer_ID where  song.Sales > 300000  
+select singer.Name from song join singer on song.Singer_ID = singer.Singer_ID  group by singer.Name having  count(*) > 1 
+select singer.Name from song join singer on song.Singer_ID = singer.Singer_ID  group by singer.Name having  count(*) > 1 
+select singer.Name , sum(song.Sales) from song join singer on song.Singer_ID = singer.Singer_ID  group by singer.Name 
+select sum(song.Sales) , singer.Name from song join singer on song.Singer_ID = singer.Singer_ID  group by singer.Name 
+select singer.Name from singer where  singer.singer_id not in (select song.Singer_ID from song  )  
+select singer.Name from singer where  singer.singer_id not in (select song.Singer_ID from song  )  
+select singer.Citizenship from singer where  singer.Birth_Year < 1945   intersect select singer.Citizenship from singer where  singer.Birth_Year > 1955  
+select singer.Citizenship from singer where  singer.Birth_Year < 1945    intersect select singer.Citizenship from singer where  singer.Birth_Year > 1955  
+select count(*) from Other_Available_Features  
+select Ref_Feature_Types.feature_type_name from Other_Available_Features join Ref_Feature_Types on Other_Available_Features.feature_type_code = Ref_Feature_Types.feature_type_code where  Other_Available_Features.feature_name = 'aircon'  
+select Ref_Property_Types.property_type_description from Ref_Property_Types  
+select Properties.property_name from Properties where  Properties.property_type_code = 'House' or Properties.property_type_code = 'Apartment'   order by Properties.room_count desc limit 1 

@@ -2,7 +2,7 @@ You must run the evaluation in this directory. database/ is the directory that c
 You need to download its content from https://drive.google.com/file/d/1IJvpd30D3qP6BZu_1bwUSi7JCyynEOMp/view?usp=sharing , and the method to generate these databases can be seen at https://arxiv.org/abs/2010.02840.
 
 
-#Evaluation for SPIDER, CoSQL, SParC
+# Evaluation for SPIDER, CoSQL, SParC
 
 Below is the example command to calculate our new metric for SPIDER, CoSQL and SParC.
 Example command: python3 evaluation.py  --gold=evaluation_examples/gold.txt --pred=evaluation_examples/predict.txt --db=database/
@@ -48,7 +48,7 @@ python3 evaluation.py  --gold=evaluation_examples/gold.txt --pred=evaluation_exa
 
 The evaluation script will calculate both execution and exact set match accuracy, does not remove the distinct keyword, and print the progress bar for each datapoint.
 
-#Evaluation for classical text-to-sql datasets
+# Evaluation for classical text-to-sql datasets
 
 The test set for classical text-to-sql datasets (ATIS, Academic, Advising, Geography, IMDB, Restaurants, Scholar, Yelp) are adopted from this repo: https://github.com/jkkummerfeld/text2sql-data ,
 We used all the test splits if the test split is defined, and the entire dataset otherwise.

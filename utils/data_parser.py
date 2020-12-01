@@ -3,12 +3,6 @@ import datetime
 
 dtype_result = {str, }
 
-def parse_dtype(dtype_str):
-    dtype_str = dtype_str.lower()
-    if 'int' in dtype_str:
-        pass
-
-
 
 month2num = {
     'JAN': '01', 'FEB': '02', 'MAR': '03', 'APR': '04', 'MAY': '05', 'JUN': '06',
